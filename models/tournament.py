@@ -23,6 +23,6 @@ class Tournament:
         self.end_date = end_date
         self.number_of_rounds = number_of_rounds
         self.round_list = round_list
-        self.player_list = player
+        self.player_list = player_list
         self.time_management = time_management
         self.description = description
