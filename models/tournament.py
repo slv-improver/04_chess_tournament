@@ -1,9 +1,10 @@
 from datetime import date
 
+
 class Tournament:
     """The tournament will manage matches between players"""
 
-    def __init__ (
+    def __init__(
         self,
         /,
         name,
@@ -14,7 +15,7 @@ class Tournament:
         number_of_rounds=4,
         round_list=[],
         player_list=[],
-        time_management=None, # ('bullet', 'blitz', 'coup rapide')
+        time_management=None,  # ('bullet', 'blitz', 'coup rapide')
         description="Pas de remarques"
     ):
         self.name = name
