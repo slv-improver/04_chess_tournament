@@ -1,3 +1,5 @@
+from datetime import date
+
 class Tournament:
     """The tournament will manage matches between players"""
 
@@ -6,9 +8,9 @@ class Tournament:
         /,
         name,
         place,
-        date,
+        date=date.today(),
         *,
-        end_date=None,
+        end_date=date.today(),
         number_of_rounds=4,
         round_list=[],
         player_list=[],
