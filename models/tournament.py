@@ -6,7 +6,6 @@ class Tournament:
 
     def __init__(
         self,
-        /,
         name,
         place,
         date=date.today(),

@@ -7,6 +7,7 @@ class Player:
         first_name,
         birth_date,
         gender,
+        *,
         ranking,
         player_id=None
     ):
