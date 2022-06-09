@@ -1,7 +1,9 @@
 # Entry point of the program
 
+from controllers.controller import Controller
+
 def main():
-    pass
+    game = Controller()
 
 
 if __name__ == '__main__':
