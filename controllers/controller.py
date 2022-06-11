@@ -15,7 +15,15 @@ class Controller:
     def menuLister(self):
         menu = Menu()
         print(menu.display)
-        return int(input('Faites votre choix : '))
+        try:
+            user_input = int(input('Faites votre choix : '))
+            if user_input > 0 and user_input <= 4:
+                return user_input
+            else:
+                print('———\n!! Le nombre n\'est pas compris dans la liste.\n———' )
+        except ValueError:
+            print('———\n!! Il faut entrer un nombre.\n———')
+            return 0
 
     def handleGame(self):
         user_input = 0
