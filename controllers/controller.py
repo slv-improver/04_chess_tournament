@@ -32,4 +32,9 @@ class Controller:
         user_input = 0
         while user_input != 4:
             user_input = self.menuLister()
+
+            match user_input:
+                case 1:
+                    pass
+
         quit()
