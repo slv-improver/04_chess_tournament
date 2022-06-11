@@ -8,6 +8,9 @@ class Controller:
         self.welcome()
         self.handleGame()
 
+    def printError(self, message):
+        print('  —————\n', '|  ', message, '\n  —————')
+
     def welcome(self):
         welcome = Welcome()
         print(welcome.display)
@@ -20,9 +23,9 @@ class Controller:
             if user_input > 0 and user_input <= 4:
                 return user_input
             else:
-                print('———\n!! Le nombre n\'est pas compris dans la liste.\n———' )
+                self.printError('Le nombre n\'est pas compris dans la liste')
         except ValueError:
-            print('———\n!! Il faut entrer un nombre.\n———')
+            self.printError('Il faut entrer un nombre')
             return 0
 
     def handleGame(self):
