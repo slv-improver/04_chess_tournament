@@ -10,7 +10,7 @@ class Controller:
         self.handleGame()
 
     def printError(self, message):
-        print('  —————\n', '|  ', message, '\n  —————')
+        print(f'   —————\n  |  {message}\n   —————')
 
     def welcome(self):
         welcome = Welcome()
