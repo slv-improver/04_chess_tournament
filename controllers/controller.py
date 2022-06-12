@@ -1,6 +1,7 @@
 from views.welcome import Welcome
 from views.menu import Menu
 
+
 class Controller:
     """Base controller"""
 
