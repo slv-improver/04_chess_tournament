@@ -1,5 +1,6 @@
 from views.welcome import Welcome
 from views.menu import Menu
+from .tournamentController import TournamentController
 
 
 class Controller:
@@ -36,6 +37,6 @@ class Controller:
 
             match user_input:
                 case 1:
-                    pass
+                    tournament = TournamentController()
 
         quit()

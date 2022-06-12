@@ -1,4 +1,8 @@
+from views.tournament import Tournament as TournamentView
+
+
 class TournamentController:
 
     def __init__(self):
-        pass
+        tournamentView = TournamentView()
+        print(tournamentView.display)
