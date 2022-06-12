@@ -8,6 +8,7 @@ class Controller:
 
     def __init__(self):
         self.welcome()
+        self.tournament = None
         self.handleGame()
 
     def printError(self, message):
@@ -37,6 +38,6 @@ class Controller:
 
             match user_input:
                 case 1:
-                    tournament = TournamentController()
+                    self.tournament = TournamentController()
 
         quit()
