@@ -2,8 +2,9 @@
 
 from controllers.controller import Controller
 
+
 def main():
-    game = Controller()
+    Controller()
 
 
 if __name__ == '__main__':
