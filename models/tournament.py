@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 class Tournament:
     """The tournament will manage matches between players"""
 
@@ -8,9 +5,9 @@ class Tournament:
         self,
         name,
         place,
-        date=datetime.today(),
+        date,
         *,
-        end_date=datetime.today(),
+        end_date,
         number_of_rounds=4,
         round_list=[],
         player_list=[],
