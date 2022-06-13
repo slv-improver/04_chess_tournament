@@ -7,7 +7,7 @@ class TournamentController:
 
     def __init__(self):
         self.tournamentView = TournamentView()
-        print(tournamentView.display)
+        print(self.tournamentView.display)
         self.tournamentModel = None
         self.askTournamentInfo()
 
