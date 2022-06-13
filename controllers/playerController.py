@@ -1,3 +1,4 @@
+from datetime import date
 from views.player import Player as PlayerView
 from models.player import Player as PlayerModel
 
@@ -13,7 +14,10 @@ class PlayerController:
     def askPlayerInfo(self):
         last_name = input('Nom du joueur : ')
         first_name = input('Prénom : ')
-        birth_date = input('Date de naissance : ')
+        d_birth = int(input('Date de naissance :\nJJ :'))
+        m_birth = int(input('MM :'))
+        y_birth = int(input('AAAA :'))
+        birth_date = date(y_birth, m_birth, d_birth)
         gender = input('M / F : ')
         ranking = input('Rang : ')
 
