@@ -48,9 +48,13 @@ class Controller:
 
     def startTournament(self):
         self.tournament = TournamentController()
+        self.choosePlayer()
 
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
         for i in range(number_of_players):
             player = PlayerController().PlayerModel
             self.players.append(player)
+
+    def choosePlayer(self):
+        self.createPlayer()
