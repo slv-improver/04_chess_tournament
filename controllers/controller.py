@@ -41,6 +41,6 @@ class Controller:
                 case 1:
                     self.tournament = TournamentController()
                 case 2:
-                    self.player = PlayerController()
+                    self.players = PlayerController()
 
         quit()
