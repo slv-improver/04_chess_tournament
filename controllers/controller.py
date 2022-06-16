@@ -40,7 +40,7 @@ class Controller:
 
             match user_input:
                 case 1:
-                    self.tournament = TournamentController()
+                    self.startTournament()
                 case 2:
                     number_of_players = int(input('Combien de joueur ? '))
                     for i in range(number_of_players):
@@ -48,3 +48,6 @@ class Controller:
                         self.players.append(player)
 
         quit()
+
+    def startTournament(self):
+        self.tournament = TournamentController()
