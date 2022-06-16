@@ -28,3 +28,4 @@ class PlayerController:
             gender = gender,
             ranking = ranking
         )
+        # Remember to handle errors
