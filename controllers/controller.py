@@ -58,3 +58,4 @@ class Controller:
 
     def choosePlayer(self):
         self.createPlayer()
+        self.tournament.tournamentModel.player_list = self.players
