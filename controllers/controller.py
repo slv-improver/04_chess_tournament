@@ -42,6 +42,9 @@ class Controller:
                 case 1:
                     self.tournament = TournamentController()
                 case 2:
-                    self.players = PlayerController()
+                    number_of_players = int(input('Combien de joueur ? '))
+                    for i in range(number_of_players):
+                        player = PlayerController().PlayerModel
+                        self.players.append(player)
 
         quit()
