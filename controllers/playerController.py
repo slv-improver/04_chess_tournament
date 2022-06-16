@@ -19,7 +19,7 @@ class PlayerController:
         y_birth = int(input('AAAA :'))
         birth_date = date(y_birth, m_birth, d_birth)
         gender = input('M / F : ')
-        ranking = input('Rang : ')
+        ranking = int(input('Rang : '))
 
         self.PlayerModel = PlayerModel(
             last_name,
