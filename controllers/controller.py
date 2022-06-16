@@ -10,6 +10,7 @@ class Controller:
     def __init__(self):
         self.welcome()
         self.tournament = None
+        self.players = []
         self.handleGame()
 
     def printError(self, message):
