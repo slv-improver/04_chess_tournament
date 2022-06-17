@@ -1,6 +1,7 @@
 from datetime import datetime
 from views.tournament import Tournament as TournamentView
 from models.tournament import Tournament as TournamentModel
+from .roundController import RoundController
 
 
 class TournamentController:
@@ -10,6 +11,7 @@ class TournamentController:
         print(self.tournamentView.display)
         self.tournamentModel = None
         self.askTournamentInfo()
+        self.round = None
 
     def askTournamentInfo(self):
         name = input('Quel est le nom du tournoi ? ')
@@ -51,7 +53,4 @@ class TournamentController:
         # Remember to handle errors
 
     def startRound(self):
-        pass
-        # generate pairs of players
-        # ask for results
-        # return
+        self.round = RoundController()
