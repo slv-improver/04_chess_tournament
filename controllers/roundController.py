@@ -15,6 +15,8 @@ class RoundController:
         if name = '':
             name = f'Round{self.round_number}'
 
+        self.roundModel = RoundModel(name)
+
 # generate pairs of players
 # ask for results
 # return
