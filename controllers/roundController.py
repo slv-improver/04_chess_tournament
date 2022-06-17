@@ -7,6 +7,10 @@ class RoundController:
         self.roundView = RoundView(round_number)
         print(self.roundView.display)
         self.roundModel = None
+        self.askRoundInfo()
+
+    def askRoundInfo(self):
+        pass
 
 # generate pairs of players
 # ask for results
