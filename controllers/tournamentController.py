@@ -49,3 +49,9 @@ class TournamentController:
             description=description
         )
         # Remember to handle errors
+
+    def startRound(self):
+        pass
+        # generate pairs of players
+        # ask for results
+        # return

@@ -50,7 +50,7 @@ class Controller:
         self.tournament = TournamentController()
         self.choosePlayer()
         for round in range(tournament.tournamentModel.number_of_rounds):
-            self.startRound()
+            self.tournament.startRound()
 
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
@@ -61,9 +61,3 @@ class Controller:
     def choosePlayer(self):
         self.createPlayer()
         self.tournament.tournamentModel.player_list = self.players
-
-    def startRound(self):
-        pass
-        # generate pairs of players
-        # ask for results
-        # return
