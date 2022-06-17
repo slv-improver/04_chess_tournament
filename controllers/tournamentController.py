@@ -52,5 +52,5 @@ class TournamentController:
         )
         # Remember to handle errors
 
-    def startRound(self):
-        self.round = RoundController()
+    def startRound(self, round_number):
+        self.round = RoundController(round_number)
