@@ -49,7 +49,7 @@ class Controller:
     def startTournament(self):
         self.tournament = TournamentController()
         self.choosePlayer()
-        for round in range(tournament.tournamentModel.number_of_rounds):
+        for round in range(self.tournament.tournamentModel.number_of_rounds):
             self.tournament.startRound()
 
     def createPlayer(self):
