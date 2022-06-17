@@ -13,7 +13,7 @@ class RoundController:
     def askRoundInfo(self):
         name = input(f'Le nom du tour : (Round {self.round_number}) ')
         if name == '':
-            name = f'Round{self.round_number}'
+            name = f'Round {self.round_number}'
 
         self.roundModel = RoundModel(name)
 
