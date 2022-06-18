@@ -1,4 +1,5 @@
 from views.match import Match as MatchView
+from models.match import Match as MatchModel
 
 
 class MatchController:
@@ -24,3 +25,7 @@ class MatchController:
                 score1 = 1
             case 2:
                 score2 = 1
+
+        return MatchModel(
+            ([self.player1, score1], [self.player2, score2])
+        )

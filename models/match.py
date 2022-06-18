@@ -1,5 +1,5 @@
 class Match:
     """Each match played by the players"""
 
-    def __init__(self, scores=([None, 0], [None, 0])):
+    def __init__(self, scores):
         self.scores = scores
