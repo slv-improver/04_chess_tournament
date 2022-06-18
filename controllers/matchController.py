@@ -1,5 +1,6 @@
 from views.match import Match as MatchView
 
+
 class MatchController:
 
     def __init__(self, player1, player2):
