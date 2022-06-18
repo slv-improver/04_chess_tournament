@@ -54,3 +54,4 @@ class TournamentController:
 
     def startRound(self, round_number):
         self.round = RoundController(round_number)
+        self.round.generatePairs(self.tournamentModel.player_list)

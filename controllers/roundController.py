@@ -18,6 +18,17 @@ class RoundController:
 
         self.roundModel = RoundModel(name, start_time=datetime.today())
 
-# generate pairs of players
+    def generatePairs(self, player_list):
+        ordered_player_list = player_list
+        if self.round_number == 1:
+            pass
+            # sort players by ranking
+        else:
+            pass
+            # sort players by points then ranking
+        middle = int(len(ordered_player_list/2))
+        first_group = ordered_player_list[:middle]
+        second_group = ordered_player_list[middle:]
+
 # ask for results
 # return
