@@ -22,7 +22,7 @@ class RoundController:
     def generatePairsFirstRound(self, player_list):
         ordered_player_list = player_list
         ordered_player_list.sort(key=lambda x: x.ranking)
-        half_list = int(len(ordered_player_list/2))
+        half_list = int(len(ordered_player_list)/2)
         first_group = ordered_player_list[:half_list]
         second_group = ordered_player_list[half_list:]
 
