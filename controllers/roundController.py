@@ -1,6 +1,7 @@
 from datetime import datetime
 from views.round import Round as RoundView
 from models.round import Round as RoundModel
+from .matchController import MatchController
 
 class RoundController:
 
@@ -25,10 +26,8 @@ class RoundController:
         first_group = ordered_player_list[:half_list]
         second_group = ordered_player_list[half_list:]
 
-        pairs_list = []
         for i in range(len(half_list)):
-            pairs_list.append((first_group[i], second_group[i]))
-        return pairs_list
+            MatchController(first_group[i], second_group[i])
 
 # ask for results
 # return
