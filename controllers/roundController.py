@@ -26,7 +26,7 @@ class RoundController:
         second_group = ordered_player_list[half_list:]
 
         pairs_list = []
-        for i in half:
+        for i in range(len(half_list)):
             pairs_list.append((first_group[i], second_group[i]))
         return pairs_list
 
