@@ -7,6 +7,7 @@ class MatchController:
         self.player1 = player1
         self.player2 = player2
         self.matchView = MatchView(player1, player2)
+        print(self.matchView.display)
 
     def askMatchResult(self):
         result = int(input(
