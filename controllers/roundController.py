@@ -22,12 +22,17 @@ class RoundController:
         ordered_player_list = player_list
         if self.round_number == 1:
             ordered_player_list.sort(key=lambda x: x.ranking)
+            half_list = int(len(ordered_player_list/2))
+            first_group = ordered_player_list[:half_list]
+            second_group = ordered_player_list[half_list:]
+
+            pairs_list = []
+            for i in half:
+                pairs_list.append((first_group[i], second_group[i]))
+            return pairs_list
         else:
             pass
             # sort players by points then ranking
-        middle = int(len(ordered_player_list/2))
-        first_group = ordered_player_list[:middle]
-        second_group = ordered_player_list[middle:]
 
 # ask for results
 # return
