@@ -54,4 +54,7 @@ class TournamentController:
 
     def startRound(self, round_number):
         self.round = RoundController(round_number)
-        self.round.generatePairs(self.tournamentModel.player_list)
+        if round_number == 1:
+            pairs_list = self.round.generatePairsFirstRound(
+                self.tournamentModel.player_list
+            )
