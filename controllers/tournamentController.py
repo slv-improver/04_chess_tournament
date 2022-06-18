@@ -11,7 +11,6 @@ class TournamentController:
         print(self.tournamentView.display)
         self.tournamentModel = None
         self.askTournamentInfo()
-        self.round = None
 
     def askTournamentInfo(self):
         name = input('Quel est le nom du tournoi ? ')
@@ -53,8 +52,9 @@ class TournamentController:
         # Remember to handle errors
 
     def startRound(self, round_number):
-        self.round = RoundController(round_number)
+        round = RoundController(round_number)
+        self.tournamentModel.round_list.append(round.roundModel)
         if round_number == 1:
-            pairs_list = self.round.generatePairsFirstRound(
+            pairs_list = round.generatePairsFirstRound(
                 self.tournamentModel.player_list
             )
