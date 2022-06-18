@@ -21,8 +21,7 @@ class RoundController:
     def generatePairs(self, player_list):
         ordered_player_list = player_list
         if self.round_number == 1:
-            pass
-            # sort players by ranking
+            ordered_player_list.sort(key=lambda x: x.ranking)
         else:
             pass
             # sort players by points then ranking
