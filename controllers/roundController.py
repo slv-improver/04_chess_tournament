@@ -1,3 +1,4 @@
+from datetime import datetime
 from views.round import Round as RoundView
 from models.round import Round as RoundModel
 
@@ -15,7 +16,7 @@ class RoundController:
         if name == '':
             name = f'Round {self.round_number}'
 
-        self.roundModel = RoundModel(name)
+        self.roundModel = RoundModel(name, start_time=datetime.today())
 
 # generate pairs of players
 # ask for results
