@@ -14,7 +14,7 @@ class MatchController:
         result = int(input(
             f'1— {self.player1.last_name} {self.player1.first_name}\n'
             f'2— {self.player2.last_name} {self.player2.first_name}\n'
-            f'0— Match nul'
+            f'0— Match nul\n'
         ))
 
         score1 = score2 = 0
