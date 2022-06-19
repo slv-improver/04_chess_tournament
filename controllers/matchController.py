@@ -12,8 +12,8 @@ class MatchController:
 
     def askMatchResult(self):
         result = int(input(
-            f'1— {self.player1}\n'
-            f'2— {self.player2}\n'
+            f'1— {self.player1.last_name} {self.player1.first_name}\n'
+            f'2— {self.player2.last_name} {self.player2.first_name}\n'
             f'0— Match nul'
         ))
 

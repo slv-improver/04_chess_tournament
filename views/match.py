@@ -2,5 +2,7 @@ class Match:
 
     def __init__(self, player1, player2):
         self.display = (
-            f'\n———— Match opposant {player1} à {player2} ————\n'
+            f'\n———— Match opposant : \n\
+            {player1.last_name} {player1.first_name} \n\
+            à {player2.last_name} {player2.first_name} ————\n'
         )
