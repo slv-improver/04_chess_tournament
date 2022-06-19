@@ -26,7 +26,7 @@ class RoundController:
         first_group = ordered_player_list[:half_list]
         second_group = ordered_player_list[half_list:]
 
-        for i in range(len(half_list)):
+        for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
             result = match.askMatchResult()
             self.roundModel.matches_list.append(result)
