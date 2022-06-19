@@ -31,6 +31,10 @@ class RoundController:
             match = MatchController(first_group[i], second_group[i])
             self.matches_list.append(match)
             self.roundModel.matches_list.append(match.matchModel)
+        while input(
+            'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
+        ) != '':
+            continue
 
         for match in self.matches_list:
             self.match.askMatchResult()
