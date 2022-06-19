@@ -11,6 +11,7 @@ class RoundController:
         print(self.roundView.display)
         self.roundModel = None
         self.askRoundInfo()
+        self.matches_list = []
 
     def askRoundInfo(self):
         name = input(f'Le nom du tour : (Round {self.round_number}) ')
@@ -28,4 +29,5 @@ class RoundController:
 
         for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
+            self.matches_list.append(match)
             self.roundModel.matches_list.append(match.matchModel)
