@@ -36,5 +36,6 @@ class RoundController:
         ) != '':
             continue
 
+    def askMatchResult(self):
         for match in self.matches_list:
-            self.match.askMatchResult()
+            match.askMatchResult()

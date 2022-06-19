@@ -58,3 +58,4 @@ class TournamentController:
             round.generatePairsFirstRound(
                 self.tournamentModel.player_list
             )
+        round.askMatchResult()
