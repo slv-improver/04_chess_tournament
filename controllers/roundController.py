@@ -31,3 +31,6 @@ class RoundController:
             match = MatchController(first_group[i], second_group[i])
             self.matches_list.append(match)
             self.roundModel.matches_list.append(match.matchModel)
+
+        for match in self.matches_list:
+            self.match.askMatchResult()
