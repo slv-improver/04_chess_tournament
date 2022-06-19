@@ -17,3 +17,8 @@ class Player:
         self.gender = gender
         self.ranking = ranking
         self.player_id = player_id
+
+        self.tournamentPoints = 0
+
+    def addPoints(self, score):
+        self.tournamentPoints += score

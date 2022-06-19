@@ -31,3 +31,6 @@ class MatchController:
                 score2 = 1
 
         self.matchModel.updateScores(score1, score2)
+
+        self.player1.addPoints(score1)
+        self.player2.addPoints(score2)
