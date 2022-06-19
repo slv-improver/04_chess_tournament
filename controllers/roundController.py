@@ -28,5 +28,4 @@ class RoundController:
 
         for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
-            result = match.askMatchResult()
-            self.roundModel.matches_list.append(result)
+            self.roundModel.matches_list.append(match.matchModel)
