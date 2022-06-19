@@ -9,6 +9,9 @@ class MatchController:
         self.player2 = player2
         self.matchView = MatchView(player1, player2)
         print(self.matchView.display)
+        self.matchModel = MatchModel(
+            ([self.player1, 0], [self.player2, 0])
+        )
 
     def askMatchResult(self):
         result = int(input(
@@ -25,7 +28,3 @@ class MatchController:
                 score1 = 1
             case 2:
                 score2 = 1
-
-        return MatchModel(
-            ([self.player1, score1], [self.player2, score2])
-        )
