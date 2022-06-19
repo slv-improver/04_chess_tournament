@@ -55,6 +55,6 @@ class TournamentController:
         round = RoundController(round_number)
         self.tournamentModel.round_list.append(round.roundModel)
         if round_number == 1:
-            pairs_list = round.generatePairsFirstRound(
+            round.generatePairsFirstRound(
                 self.tournamentModel.player_list
             )
