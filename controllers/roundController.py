@@ -49,10 +49,12 @@ class RoundController:
             while ordered_player_list[i_player1] \
             in ordered_player_list[i_player2].previousOpponents:
                 i_player2 ++
-            MatchController(
+            match = MatchController(
                 ordered_player_list.pop(i_player1),
                 ordered_player_list.pop(i_player2)
             )
+            self.matches_list.append(match)
+            self.roundModel.matches_list.append(match.matchModel)
 
     def askMatchResult(self):
         for match in self.matches_list:
