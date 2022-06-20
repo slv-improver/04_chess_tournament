@@ -53,6 +53,8 @@ class RoundController:
             )
             self.__appendMatch()
 
+        self.__typeEnterToContinue()
+
     def __appendMatch(self, match):
         self.matches_list.append(match)
         self.roundModel.matches_list.append(match.matchModel)
