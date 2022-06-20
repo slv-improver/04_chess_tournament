@@ -22,8 +22,10 @@ class RoundController:
         self.roundModel = RoundModel(name, start_time=datetime.today())
 
     def generatePairsFirstRound(self, player_list):
-        ordered_player_list = player_list
-        ordered_player_list.sort(key=lambda x: x.ranking)
+        ordered_player_list = sorted(
+            player_list,
+            key=lambda x: x.ranking
+        )
         half_list = int(len(ordered_player_list)/2)
         first_group = ordered_player_list[:half_list]
         second_group = ordered_player_list[half_list:]
@@ -35,8 +37,8 @@ class RoundController:
         self.__typeEnterToContinue()
 
     def generatePairsOtherRounds(self, player_list):
-        ordered_player_list = player_list
-        ordered_player_list.sort(
+        ordered_player_list = sorted(
+            player_list,
             key=lambda x: (-x.tournamentPoints, x.ranking)
         )
 
