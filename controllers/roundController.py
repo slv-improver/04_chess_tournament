@@ -42,11 +42,11 @@ class RoundController:
             key=lambda x: (-x.tournamentPoints, x.ranking)
         )
 
-        for i in range(len(ordered_player_list)):
-            if (i+1) % 2 != 0:
-                MatchController(
-                    ordered_player_list[i], ordered_player_list[i+1]
-                )
+        while len(ordered_player_list) > 0:
+            MatchController(
+                ordered_player_list.pop(i),
+                ordered_player_list.pop(i+1)
+            )
 
     def askMatchResult(self):
         for match in self.matches_list:
