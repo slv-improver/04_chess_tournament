@@ -31,10 +31,8 @@ class RoundController:
         for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
             self.__appendMatch()
-        while input(
-            'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
-        ) != '':
-            continue
+
+        self.__typeEnterToContinue()
 
     def generatePairsOtherRounds(self, player_list):
         ordered_player_list = player_list
@@ -58,6 +56,12 @@ class RoundController:
     def __appendMatch(self, match):
         self.matches_list.append(match)
         self.roundModel.matches_list.append(match.matchModel)
+
+    def __typeEnterToContinue(self):
+        while input(
+            'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
+        ) != '':
+            continue
 
     def askMatchResult(self):
         for match in self.matches_list:
