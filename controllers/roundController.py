@@ -68,3 +68,6 @@ class RoundController:
     def askMatchResult(self):
         for match in self.matches_list:
             match.askMatchResult()
+
+    def completeRound(self):
+        self.roundModel.end_time = datetime.today()
