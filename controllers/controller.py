@@ -55,7 +55,7 @@ class Controller:
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
         for i in range(number_of_players):
-            player = PlayerController().PlayerModel
+            player = PlayerController().playerModel
             self.players.append(player)
 
     def choosePlayer(self):
