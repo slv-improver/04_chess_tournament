@@ -43,9 +43,15 @@ class RoundController:
         )
 
         while len(ordered_player_list) > 0:
+            i_player1 = 0
+            i_player2 = 1
+            # Check player1 did not play with player2
+            while ordered_player_list[i_player1] \
+            in ordered_player_list[i_player2].previousOpponents:
+                i_player2 ++
             MatchController(
-                ordered_player_list.pop(i),
-                ordered_player_list.pop(i+1)
+                ordered_player_list.pop(i_player1),
+                ordered_player_list.pop(i_player2)
             )
 
     def askMatchResult(self):
