@@ -8,7 +8,7 @@ class PlayerController:
     def __init__(self):
         self.playerView = PlayerView()
         print(self.playerView.display)
-        self.PlayerModel = None
+        self.playerModel = None
         self.askPlayerInfo()
 
     def askPlayerInfo(self):
@@ -21,7 +21,7 @@ class PlayerController:
         gender = input('M / F : ')
         ranking = int(input('Rang : '))
 
-        self.PlayerModel = PlayerModel(
+        self.playerModel = PlayerModel(
             last_name,
             first_name,
             birth_date,
