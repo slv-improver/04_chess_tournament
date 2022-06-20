@@ -36,6 +36,16 @@ class RoundController:
         ) != '':
             continue
 
+    def generatePairsOtherRounds(self, player_list):
+        ordered_player_list = player_list
+        ordered_player_list.sort(
+            key=lambda x: (-x.tournamentPoints, x.ranking)
+        )
+
+        for i in range(len(player_list)):
+            if (i+1) % 2 != 0:
+                MatchController(player_list[i], player_list[i+1])
+
     def askMatchResult(self):
         for match in self.matches_list:
             match.askMatchResult()
