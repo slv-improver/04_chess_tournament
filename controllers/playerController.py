@@ -2,6 +2,7 @@ from datetime import date
 from views.player import Player as PlayerView
 from models.player import Player as PlayerModel
 
+
 class PlayerController:
     """Manage Player creation"""
 

@@ -3,6 +3,7 @@ from views.round import Round as RoundView
 from models.round import Round as RoundModel
 from .matchController import MatchController
 
+
 class RoundController:
 
     def __init__(self, round_number):
@@ -29,12 +30,9 @@ class RoundController:
 
         for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
-            self.matches_list.append(match)
-            self.roundModel.matches_list.append(match.matchModel)
-        while input(
-            'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
-        ) != '':
-            continue
+            self.__appendMatch()
+
+        self.__typeEnterToContinue()
 
     def generatePairsOtherRounds(self, player_list):
         ordered_player_list = player_list
@@ -53,9 +51,23 @@ class RoundController:
                 ordered_player_list.pop(i_player1),
                 ordered_player_list.pop(i_player2)
             )
-            self.matches_list.append(match)
-            self.roundModel.matches_list.append(match.matchModel)
+            self.__appendMatch()
+
+        self.__typeEnterToContinue()
+
+    def __appendMatch(self, match):
+        self.matches_list.append(match)
+        self.roundModel.matches_list.append(match.matchModel)
+
+    def __typeEnterToContinue(self):
+        while input(
+            'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
+        ) != '':
+            continue
 
     def askMatchResult(self):
         for match in self.matches_list:
             match.askMatchResult()
+
+    def completeRound(self):
+        self.roundModel.end_time = datetime.today()
