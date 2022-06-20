@@ -51,7 +51,7 @@ class RoundController:
                 ordered_player_list.pop(i_player1),
                 ordered_player_list.pop(i_player2)
             )
-            self.__appendMatch()
+            self.__appendMatch(match)
 
         self.__typeEnterToContinue()
 
