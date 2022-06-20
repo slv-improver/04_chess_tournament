@@ -48,9 +48,11 @@ class RoundController:
             in ordered_player_list[i_player2].previousOpponents:
                 i_player2 += 1
             match = MatchController(
-                ordered_player_list.pop(i_player1),
-                ordered_player_list.pop(i_player2)
+                ordered_player_list[i_player1],
+                ordered_player_list[i_player2]
             )
+            del ordered_player_list[i_player2], ordered_player_list[i_player1]
+            
             self.__appendMatch(match)
 
         self.__typeEnterToContinue()
