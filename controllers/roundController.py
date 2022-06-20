@@ -30,7 +30,7 @@ class RoundController:
 
         for i in range(half_list):
             match = MatchController(first_group[i], second_group[i])
-            self.__appendMatch()
+            self.__appendMatch(match)
 
         self.__typeEnterToContinue()
 
