@@ -40,11 +40,24 @@ class Controller:
 
             match user_input:
                 case 1:
-                    self.tournament = TournamentController()
+                    self.startTournament()
                 case 2:
-                    number_of_players = int(input('Combien de joueur ? '))
-                    for i in range(number_of_players):
-                        player = PlayerController().PlayerModel
-                        self.players.append(player)
+                    self.createPlayer()
 
         quit()
+
+    def startTournament(self):
+        self.tournament = TournamentController()
+        self.choosePlayer()
+        for round in range(self.tournament.tournamentModel.number_of_rounds):
+            self.tournament.startRound(round + 1)
+
+    def createPlayer(self):
+        number_of_players = int(input('Combien de joueur ? '))
+        for i in range(number_of_players):
+            player = PlayerController().PlayerModel
+            self.players.append(player)
+
+    def choosePlayer(self):
+        self.createPlayer()
+        self.tournament.tournamentModel.player_list = self.players

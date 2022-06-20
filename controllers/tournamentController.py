@@ -1,6 +1,7 @@
 from datetime import datetime
 from views.tournament import Tournament as TournamentView
 from models.tournament import Tournament as TournamentModel
+from .roundController import RoundController
 
 
 class TournamentController:
@@ -23,9 +24,16 @@ class TournamentController:
         number_of_rounds = input('Le nombre de tours ? (4)')
         if number_of_rounds == '':
             number_of_rounds = 4
-        time_management = input(
-            'Le mode de jeu ?\n Bullet - Blitz - Coup rapide : '
-        )
+        time_management = int(input(
+            'Le mode de jeu ?\n 1—Bullet - 2—Blitz - 3—Coup rapide : '
+        ))
+        match time_management:
+            case 1:
+                time_management = 'Bullet'
+            case 2:
+                time_management = 'Blitz'
+            case 3:
+                time_management = 'Coup rapide'
         description = input('Remarques relatives au tournoi : ')
         if description == '':
             description = "Pas de remarques"
@@ -42,3 +50,16 @@ class TournamentController:
             description=description
         )
         # Remember to handle errors
+
+    def startRound(self, round_number):
+        round = RoundController(round_number)
+        self.tournamentModel.round_list.append(round.roundModel)
+        if round_number == 1:
+            round.generatePairsFirstRound(
+                self.tournamentModel.player_list
+            )
+        else:
+            round.generatePairsOtherRounds(
+                self.tournamentModel.player_list
+            )
+        round.askMatchResult()
