@@ -34,3 +34,6 @@ class MatchController:
 
         self.player1.addPoints(score1)
         self.player2.addPoints(score2)
+
+        self.player1.previousOpponents.append(self.player2)
+        self.player2.previousOpponents.append(self.player1)
