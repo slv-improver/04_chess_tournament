@@ -45,10 +45,11 @@ class RoundController:
         while len(ordered_player_list) > 0:
             i_player1 = 0
             i_player2 = 1
-            # Check player1 did not play with player2
-            while ordered_player_list[i_player1] \
-            in ordered_player_list[i_player2].previousOpponents:
-                i_player2 += 1
+            # Don't pairs top player with someone he has already play against
+            if len(ordered_player_list) == len(player_list):
+                while ordered_player_list[i_player1] \
+                in ordered_player_list[i_player2].previousOpponents:
+                    i_player2 += 1
             match = MatchController(
                 ordered_player_list[i_player1],
                 ordered_player_list[i_player2]
