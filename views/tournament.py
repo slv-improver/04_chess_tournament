@@ -4,3 +4,10 @@ class Tournament:
         self.display = (
             '\n—— Le tournoi commence ——\n'
         )
+
+    def theWinnerIs(self, winner, tournamentName):
+        return (
+            f'\nLe vainqeur du tournoi “{tournamentName}” est\n'
+            f'——— {winner.last_name} {winner.first_name} ———\n'
+            f'avec {winner.tournamentPoints} point(s)\n____\n_____'
+        )

@@ -69,4 +69,9 @@ class TournamentController:
             self.tournamentModel.player_list,
             key=lambda x: x.tournamentPoints
         )
-        
+        print(
+            self.tournamentView.theWinnerIs(
+                winner,
+                self.tournamentModel.name
+            )
+        )
