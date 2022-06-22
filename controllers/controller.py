@@ -52,6 +52,8 @@ class Controller:
         for round in range(self.tournament.tournamentModel.number_of_rounds):
             self.tournament.startRound(round + 1)
 
+        self.tournament.declareWinner()
+
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
         for i in range(number_of_players):

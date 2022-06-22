@@ -63,3 +63,10 @@ class TournamentController:
                 self.tournamentModel.player_list
             )
         round.askMatchResult()
+
+    def declareWinner(self):
+        winner = max(
+            self.tournamentModel.player_list,
+            key=lambda x: x.tournamentPoints
+        )
+        
