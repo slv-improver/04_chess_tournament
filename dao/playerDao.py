@@ -6,3 +6,6 @@ class PlayerDAO(DAO):
 
     def clearTable(self):
         self.players_table.truncate()
+
+    def insertData(self, serializedData):
+        self.players_table.insert_multiple(serializedData)
