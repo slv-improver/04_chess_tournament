@@ -1,4 +1,7 @@
+from tinydb import TinyDB
+
+
 class DAO:
 
     def __init__(self):
-        pass
+        self.db = TinyDB('db.json')
