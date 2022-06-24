@@ -18,7 +18,7 @@ class PlayerController:
         d_birth = int(input('Date de naissance :\nJJ :'))
         m_birth = int(input('MM :'))
         y_birth = int(input('AAAA :'))
-        birth_date = date(y_birth, m_birth, d_birth)
+        birth_date = date(y_birth, m_birth, d_birth).strftime('%d/%m/%Y')
         gender = input('M / F : ')
         ranking = int(input('Rang : '))
 
