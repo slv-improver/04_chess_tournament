@@ -1,3 +1,6 @@
+from .dao import DAO
+
+
 class PlayerDAO(DAO):
 
     def __init(self):
