@@ -23,3 +23,15 @@ class Player:
 
     def addPoints(self, score):
         self.tournamentPoints += score
+
+    def serialize(self):
+        serializedPlayer = {
+            'last_name': self.last_name,
+            'first_name': self.first_name,
+            'birth_date': self.birth_date,
+            'gender': self.gender,
+            'ranking': self.ranking,
+            'tournamentPoints': self.tournamentPoints,
+            'previousOpponents': self.previousOpponents
+        }
+        return serializedPlayer
