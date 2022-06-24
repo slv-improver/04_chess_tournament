@@ -3,8 +3,8 @@ from .dao import DAO
 
 class PlayerDAO(DAO):
 
-    def __init(self):
-        super().__init()
+    def __init__(self):
+        super().__init__()
         self.players_table = self.db.table('players')
 
     def clearTable(self):
