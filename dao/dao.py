@@ -1,4 +1,5 @@
 from tinydb import TinyDB
+from abc import ABC
 
 
 class DAO(ABC):
