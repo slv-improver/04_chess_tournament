@@ -2,6 +2,7 @@ from views.welcome import Welcome
 from views.menu import Menu
 from .tournamentController import TournamentController
 from .playerController import PlayerController
+from dao.playerDao import PlayerDAO
 
 
 class Controller:
@@ -9,6 +10,7 @@ class Controller:
 
     def __init__(self):
         self.welcome()
+        self.playerDao = PlayerDAO()
         self.tournament = None
         self.players = []
         self.handleGame()
@@ -59,7 +61,15 @@ class Controller:
         for i in range(number_of_players):
             player = PlayerController().playerModel
             self.players.append(player)
+        self.storePlayers(self.players)
 
     def choosePlayer(self):
         self.createPlayer()
         self.tournament.tournamentModel.player_list = self.players
+
+    def storePlayers(self, players):
+        serializedPlayers = []
+        for player in players:
+            serializedPlayers.append(player.serialize())
+        print(serializedPlayers)
+        self.playerDao.insertData(serializedPlayers)
