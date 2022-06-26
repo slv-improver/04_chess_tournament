@@ -9,7 +9,8 @@ class Controller:
 
     def __init__(self):
         self.welcome()
-        self.players = PlayerController.getPlayers()
+        self.master_player = PlayerController()
+        self.players = self.master_player.getPlayers()
         self.tournament = None
         self.handleGame()
 
