@@ -8,7 +8,7 @@ class PlayerDAO(DAO):
         self.players_table = self.db.table('players')
 
     def getAll(self):
-        self.players_table.all()
+        return self.players_table.all()
 
     def clearTable(self):
         self.players_table.truncate()
