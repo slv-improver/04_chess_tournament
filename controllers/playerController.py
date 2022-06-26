@@ -31,3 +31,9 @@ class PlayerController:
         )
         # Remember to handle errors
 
+    @classmethod
+    def getPlayers(self):
+        serializedPlayers = self.playerDao.getAll()
+        for serializedPlayer in serializedPlayers:
+            PlayerModel.unserialize(serializedPlayer)
+        return players
