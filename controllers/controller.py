@@ -60,7 +60,7 @@ class Controller:
         for i in range(number_of_players):
             player = PlayerController().playerModel
             self.players.append(player)
-        PlayerController.storePlayers(self.players)
+        self.master_player.storePlayers(self.players)
 
     def choosePlayer(self):
         self.createPlayer()
