@@ -1,12 +1,14 @@
 from datetime import date
 from views.player import Player as PlayerView
 from models.player import Player as PlayerModel
+from dao.playerDao import PlayerDAO
 
 
 class PlayerController:
     """Manage Player creation"""
 
     def __init__(self):
+        self.playerDao = PlayerDAO()
         self.playerView = PlayerView()
         print(self.playerView.display)
         self.playerModel = None

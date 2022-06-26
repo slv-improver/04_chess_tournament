@@ -2,7 +2,6 @@ from views.welcome import Welcome
 from views.menu import Menu
 from .tournamentController import TournamentController
 from .playerController import PlayerController
-from dao.playerDao import PlayerDAO
 
 
 class Controller:
@@ -10,7 +9,6 @@ class Controller:
 
     def __init__(self):
         self.welcome()
-        self.playerDao = PlayerDAO()
         self.players = PlayerController.getPlayers()
         self.tournament = None
         self.handleGame()
