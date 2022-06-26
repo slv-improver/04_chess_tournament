@@ -11,8 +11,8 @@ class Controller:
     def __init__(self):
         self.welcome()
         self.playerDao = PlayerDAO()
+        self.players = getPlayers()
         self.tournament = None
-        self.players = []
         self.handleGame()
 
     def printError(self, message):
@@ -47,6 +47,11 @@ class Controller:
                     self.createPlayer()
 
         quit()
+
+    def getPlayers(self):
+        serializedPlayers = self.playerDao.getAll()
+        # unserialze players
+        return players
 
     def startTournament(self):
         self.tournament = TournamentController()
