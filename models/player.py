@@ -16,7 +16,6 @@ class Player:
         self.birth_date = birth_date
         self.gender = gender
         self.ranking = ranking
-        self.player_id = player_id
 
         self.tournamentPoints = 0
         self.previousOpponents = []
