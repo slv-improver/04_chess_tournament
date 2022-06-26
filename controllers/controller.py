@@ -61,15 +61,8 @@ class Controller:
         for i in range(number_of_players):
             player = PlayerController().playerModel
             self.players.append(player)
-        self.storePlayers(self.players)
+        PlayerController.storePlayers(self.players)
 
     def choosePlayer(self):
         self.createPlayer()
         self.tournament.tournamentModel.player_list = self.players
-
-    def storePlayers(self, players):
-        serializedPlayers = []
-        for player in players:
-            serializedPlayers.append(player.serialize())
-        print(serializedPlayers)
-        self.playerDao.insertData(serializedPlayers)

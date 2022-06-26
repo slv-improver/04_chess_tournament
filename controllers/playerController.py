@@ -32,6 +32,14 @@ class PlayerController:
         # Remember to handle errors
 
     @classmethod
+    def storePlayers(self, players):
+        serializedPlayers = []
+        for player in players:
+            serializedPlayers.append(player.serialize())
+        print(serializedPlayers)
+        self.playerDao.insertData(serializedPlayers)
+
+    @classmethod
     def getPlayers(self):
         serializedPlayers = self.playerDao.getAll()
         for serializedPlayer in serializedPlayers:
