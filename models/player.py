@@ -9,7 +9,9 @@ class Player:
         gender,
         *,
         ranking,
-        player_id=None
+        player_id=None,
+        tournamentPoints=0,
+        previousOpponents=[]
     ):
         self.last_name = last_name
         self.first_name = first_name
@@ -17,8 +19,8 @@ class Player:
         self.gender = gender
         self.ranking = ranking
 
-        self.tournamentPoints = 0
-        self.previousOpponents = []
+        self.tournamentPoints = tournamentPoints
+        self.previousOpponents = previousOpponents
 
     def addPoints(self, score):
         self.tournamentPoints += score
