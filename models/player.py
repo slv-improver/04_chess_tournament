@@ -36,3 +36,7 @@ class Player:
             'previousOpponents': self.previousOpponents
         }
         return serializedPlayer
+
+    @classmethod
+    def unserialize(cls, serializedPlayer):
+        return cls(**serialzedPlayer)
