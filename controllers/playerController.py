@@ -36,6 +36,16 @@ class PlayerController:
         )
         # Remember to handle errors
 
+    def choosePlayer(self, all_players, number_of_players):
+        players_for_tournament = []
+        for i in range(number_of_players):
+            for j, player in enumerate(all_players):
+                print(f'{j+1} — {player.last_name} {player.first_name}')
+            choice = int(input('Entrez le numéro du joueur à ajouter : '))
+            players_for_tournament.append(all_players[choice-1])
+            all_players.pop(choice-1)
+        return players_for_tournament
+
     def storePlayers(self, players):
         serializedPlayers = []
         for player in players:
