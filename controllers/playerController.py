@@ -45,6 +45,9 @@ class PlayerController:
 
     def getPlayers(self):
         serializedPlayers = self.playerDao.getAll()
+        players = []
         for serializedPlayer in serializedPlayers:
-            PlayerModel.unserialize(serializedPlayer)
+            players.append(
+                self.playerModel.unserialize(serializedPlayer)
+            )
         return players
