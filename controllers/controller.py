@@ -11,6 +11,7 @@ class Controller:
         self.welcome()
         self.master_player = PlayerController(master=True)
         self.players = self.master_player.getPlayers()
+        self.players_for_tournament = []
         self.tournament = None
         self.handleGame()
 
@@ -49,7 +50,13 @@ class Controller:
 
     def startTournament(self):
         self.tournament = TournamentController()
-        self.choosePlayer()
+        self.players_for_tournament = self.master_player.choosePlayer(
+            self.players,
+            int(input('Combien de joueurs participent ? '))
+        )
+        self.tournament.tournamentModel.player_list = (
+            self.players_for_tournament
+        )
         for round in range(self.tournament.tournamentModel.number_of_rounds):
             self.tournament.startRound(round + 1)
 
