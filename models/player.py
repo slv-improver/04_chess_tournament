@@ -3,12 +3,12 @@ class Player:
 
     def __init__(
         self,
-        last_name,
-        first_name,
-        birth_date,
-        gender,
+        last_name='',
+        first_name='',
+        birth_date='',
+        gender='',
         *,
-        ranking,
+        ranking=0,
         player_id=None,
         tournamentPoints=0,
         previousOpponents=[]
