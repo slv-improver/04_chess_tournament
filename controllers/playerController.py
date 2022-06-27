@@ -7,12 +7,15 @@ from dao.playerDao import PlayerDAO
 class PlayerController:
     """Manage Player creation"""
 
-    def __init__(self):
+    def __init__(self, master=False):
         self.playerDao = PlayerDAO()
         self.playerView = PlayerView()
-        print(self.playerView.display)
         self.playerModel = None
-        self.askPlayerInfo()
+        if not master:
+            self.askPlayerInfo()
+            print(self.playerView.display)
+        else:
+            self.playerModel = PlayerModel()
 
     def askPlayerInfo(self):
         last_name = input('Nom du joueur : ')
