@@ -63,5 +63,6 @@ class Controller:
         self.master_player.storePlayers(self.players)
 
     def choosePlayer(self):
-        self.createPlayer()
+        for i, player in enumerate(self.players):
+            print(f'{i+1} — {player.last_name} {player.first_name}')
         self.tournament.tournamentModel.player_list = self.players
