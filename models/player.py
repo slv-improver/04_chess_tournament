@@ -39,4 +39,4 @@ class Player:
 
     @classmethod
     def unserialize(cls, serializedPlayer):
-        return cls(**serialzedPlayer)
+        return cls(**serializedPlayer)
