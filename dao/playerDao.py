@@ -14,4 +14,5 @@ class PlayerDAO(DAO):
         self.players_table.truncate()
 
     def insertData(self, serializedData):
+        self.clearTable()
         self.players_table.insert_multiple(serializedData)
