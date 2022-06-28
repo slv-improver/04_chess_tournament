@@ -38,12 +38,14 @@ class PlayerController:
 
     def choosePlayer(self, all_players, number_of_players):
         players_for_tournament = []
+        hidden_players = []
         for i in range(number_of_players):
             for j, player in enumerate(all_players):
-                print(f'{j+1} — {player.last_name} {player.first_name}')
+                if (j not in hidden_players):
+                    print(f'{j+1} — {player.last_name} {player.first_name}')
             choice = int(input('Entrez le numéro du joueur à ajouter : '))
             players_for_tournament.append(all_players[choice-1])
-            all_players.pop(choice-1)
+            hidden_players.append(choice-1)
         return players_for_tournament
 
     def storePlayers(self, players):
