@@ -68,7 +68,7 @@ class TournamentController:
     def declareWinner(self):
         winner = max(
             self.tournamentModel.player_list,
-            key=lambda x: x.tournamentPoints
+            key=lambda x: (x.tournamentPoints, -x.ranking)
         )
         print(
             self.tournamentView.theWinnerIs(
