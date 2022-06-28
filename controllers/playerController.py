@@ -36,7 +36,7 @@ class PlayerController:
         )
         # Remember to handle errors
 
-    def choosePlayer(self, all_players, number_of_players):
+    def choosePlayers(self, all_players, number_of_players):
         players_for_tournament = []
         hidden_players = []
         for i in range(number_of_players):

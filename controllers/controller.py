@@ -50,7 +50,7 @@ class Controller:
 
     def startTournament(self):
         self.tournament = TournamentController()
-        self.players_for_tournament = self.master_player.choosePlayer(
+        self.players_for_tournament = self.master_player.choosePlayers(
             self.players,
             int(input('Combien de joueurs participent ? '))
         )
