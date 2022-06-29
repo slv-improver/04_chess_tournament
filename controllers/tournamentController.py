@@ -2,6 +2,7 @@ from datetime import datetime
 from views.tournament import Tournament as TournamentView
 from models.tournament import Tournament as TournamentModel
 from .roundController import RoundController
+from dao.tournamentDao import TournamentDAO
 
 
 class TournamentController:
