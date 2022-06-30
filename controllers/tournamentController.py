@@ -23,7 +23,7 @@ class TournamentController:
         end_date = input('La date de fin ? (Aujourd\'hui) ')
         if end_date == '':
             end_date = datetime.today().strftime('%d/%m/%Y')
-        number_of_rounds = input('Le nombre de tours ? (4)')
+        number_of_rounds = int(input('Le nombre de tours ? (4) '))
         if number_of_rounds == '':
             number_of_rounds = 4
         time_management = int(input(
