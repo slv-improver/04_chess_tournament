@@ -52,7 +52,6 @@ class PlayerController:
         serializedPlayers = []
         for player in players:
             serializedPlayers.append(player.serialize())
-        print(serializedPlayers)
         self.playerDao.insertData(serializedPlayers)
 
     def getPlayers(self):
