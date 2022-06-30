@@ -8,6 +8,7 @@ from dao.tournamentDao import TournamentDAO
 class TournamentController:
 
     def __init__(self):
+        self.tournamentDao = TournamentDAO()
         self.tournamentView = TournamentView()
         print(self.tournamentView.display)
         self.tournamentModel = None
@@ -77,3 +78,7 @@ class TournamentController:
                 self.tournamentModel.name
             )
         )
+
+    def storeTournament(self):
+        serializedTournament = self.tournamentModel.serialize()
+        self.tournamentDao.insertData(serializedTournament)

@@ -64,6 +64,7 @@ class Controller:
             key=lambda x: (-x.tournamentPoints, x.ranking)
         )
         self.tournament.declareWinner()
+        self.tournament.storeTournament()
 
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
