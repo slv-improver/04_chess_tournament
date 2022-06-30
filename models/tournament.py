@@ -23,3 +23,9 @@ class Tournament:
         self.player_list = player_list
         self.time_management = time_management
         self.description = description
+
+    def serialize(self):
+        serializedData = {}
+        for key, value in vars(self).items():
+            serializedData[key] = value
+        return serializedData
