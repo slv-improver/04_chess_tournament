@@ -60,7 +60,7 @@ class Controller:
         for round in range(self.tournament.tournamentModel.number_of_rounds):
             self.tournament.startRound(round + 1)
 
-        self.tournamentModel.player_list.sort(
+        self.tournament.tournamentModel.player_list.sort(
             key=lambda x: (-x.tournamentPoints, x.ranking)
         )
         self.tournament.declareWinner()
