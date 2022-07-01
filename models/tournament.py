@@ -27,5 +27,8 @@ class Tournament:
     def serialize(self):
         serializedData = {}
         for key, value in vars(self).items():
-            serializedData[key] = value
+            try:
+                serializedData[key] = value
+            except TypeError:
+                serializedData[key] = value.serialize()
         return serializedData
