@@ -15,4 +15,4 @@ class TournamentDAO(DAO):
 
     def insertData(self, serializedData):
         self.clearTable()
-        self.tournaments_table.insert_multiple(serializedData)
+        self.tournaments_table.insert(serializedData)

@@ -1,4 +1,7 @@
-class Match:
+from .base import Base
+
+
+class Match(Base):
     """Each match played by the players"""
 
     def __init__(self, scores):

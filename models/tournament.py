@@ -1,4 +1,7 @@
-class Tournament:
+from .base import Base
+
+
+class Tournament(Base):
     """The tournament will manage matches between players"""
 
     def __init__(
@@ -23,12 +26,3 @@ class Tournament:
         self.player_list = player_list
         self.time_management = time_management
         self.description = description
-
-    def serialize(self):
-        serializedData = {}
-        for key, value in vars(self).items():
-            try:
-                serializedData[key] = value
-            except TypeError:
-                serializedData[key] = value.serialize()
-        return serializedData

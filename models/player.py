@@ -1,4 +1,7 @@
-class Player:
+from .base import Base
+
+
+class Player(Base):
     """The chess player"""
 
     def __init__(

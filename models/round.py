@@ -1,4 +1,7 @@
-class Round:
+from .base import Base
+
+
+class Round(Base):
     """List of matches"""
 
     def __init__(self, name, start_time):
