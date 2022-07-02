@@ -1,4 +1,5 @@
 from abc import ABC
+import json
 
 
 class Base(ABC):
@@ -7,6 +8,7 @@ class Base(ABC):
         serializedData = {}
         for key, value in vars(self).items():
             try:
+                json.dumps(value)
                 serializedData[key] = value
             except TypeError:
                 serializedData[key] = value.serialize()
