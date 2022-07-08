@@ -80,5 +80,5 @@ class TournamentController:
         )
 
     def storeTournament(self):
-        serializedTournament = self.tournamentModel.serialize()
-        self.tournamentDao.insertData(serializedTournament)
+        dictTournament = self.tournamentModel.toDict()
+        self.tournamentDao.insertData(dictTournament)
