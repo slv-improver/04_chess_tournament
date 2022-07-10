@@ -11,5 +11,15 @@ class Base(ABC):
                 json.dumps(value)
                 dictData[key] = value
             except TypeError:
-                dictData[key] = value.toDict()
+                if hasattr(value, '__iter__'): 
+                    new_value = self.iterate(value)
+                    dictData[key] = new_value
+                else:
+                    dictData[key] = toDict(value)
         return dictData
+
+    def iterate(self, iterable):
+        list_of_dict = []
+        for model in iterable:
+            list_of_dict.append(model.toDict())
+        return list_of_dict
