@@ -19,7 +19,10 @@ class RoundController:
         if name == '':
             name = f'Round {self.round_number}'
 
-        self.roundModel = RoundModel(name, start_time=datetime.today())
+        self.roundModel = RoundModel(
+            name,
+            start_time=datetime.today().strftime('%d/%m/%Y-%H:%M:%S')
+        )
 
     def generatePairsFirstRound(self, player_list):
         ordered_player_list = sorted(
@@ -75,4 +78,6 @@ class RoundController:
             match.askMatchResult()
 
     def completeRound(self):
-        self.roundModel.end_time = datetime.today()
+        self.roundModel.end_time = datetime.today().strftime(
+            '%d/%m/%Y-%H:%M:%S'
+        )

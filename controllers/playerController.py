@@ -49,17 +49,16 @@ class PlayerController:
         return players_for_tournament
 
     def storePlayers(self, players):
-        serializedPlayers = []
+        dictPlayers = []
         for player in players:
-            serializedPlayers.append(player.serialize())
-        print(serializedPlayers)
-        self.playerDao.insertData(serializedPlayers)
+            dictPlayers.append(player.toDict())
+        self.playerDao.insertData(dictPlayers)
 
     def getPlayers(self):
-        serializedPlayers = self.playerDao.getAll()
+        dictPlayers = self.playerDao.getAll()
         players = []
-        for serializedPlayer in serializedPlayers:
+        for dictPlayer in dictPlayers:
             players.append(
-                self.playerModel.unserialize(serializedPlayer)
+                self.playerModel.toObject(dictPlayer)
             )
         return players

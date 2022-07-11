@@ -60,7 +60,12 @@ class Controller:
         for round in range(self.tournament.tournamentModel.number_of_rounds):
             self.tournament.startRound(round + 1)
 
+        self.tournament.tournamentModel.player_list.sort(
+            key=lambda x: (-x.tournamentPoints, x.ranking)
+        )
         self.tournament.declareWinner()
+        self.tournament.clearPreviousOpponents()
+        self.tournament.storeTournament()
 
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))

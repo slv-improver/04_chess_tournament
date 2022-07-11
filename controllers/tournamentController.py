@@ -2,11 +2,13 @@ from datetime import datetime
 from views.tournament import Tournament as TournamentView
 from models.tournament import Tournament as TournamentModel
 from .roundController import RoundController
+from dao.tournamentDao import TournamentDAO
 
 
 class TournamentController:
 
     def __init__(self):
+        self.tournamentDao = TournamentDAO()
         self.tournamentView = TournamentView()
         print(self.tournamentView.display)
         self.tournamentModel = None
@@ -17,11 +19,11 @@ class TournamentController:
         place = input('Le lieu ? ')
         date = input('La date de début ? (Aujourd\'hui) ')
         if date == '':
-            date = datetime.today()
+            date = datetime.today().strftime('%d/%m/%Y')
         end_date = input('La date de fin ? (Aujourd\'hui) ')
         if end_date == '':
-            end_date = datetime.today()
-        number_of_rounds = input('Le nombre de tours ? (4)')
+            end_date = datetime.today().strftime('%d/%m/%Y')
+        number_of_rounds = int(input('Le nombre de tours ? (4) '))
         if number_of_rounds == '':
             number_of_rounds = 4
         time_management = int(input(
@@ -68,7 +70,7 @@ class TournamentController:
     def declareWinner(self):
         winner = max(
             self.tournamentModel.player_list,
-            key=lambda x: x.tournamentPoints
+            key=lambda x: (x.tournamentPoints, -x.ranking)
         )
         print(
             self.tournamentView.theWinnerIs(
@@ -76,3 +78,11 @@ class TournamentController:
                 self.tournamentModel.name
             )
         )
+
+    def clearPreviousOpponents(self):
+        for player in self.tournamentModel.player_list:
+            del player.previousOpponents[:]
+
+    def storeTournament(self):
+        dictTournament = self.tournamentModel.toDict()
+        self.tournamentDao.insertData(dictTournament)

@@ -1,4 +1,7 @@
-class Player:
+from .base import Base
+
+
+class Player(Base):
     """The chess player"""
 
     def __init__(
@@ -25,8 +28,8 @@ class Player:
     def addPoints(self, score):
         self.tournamentPoints += score
 
-    def serialize(self):
-        serializedPlayer = {
+    def toDict(self):
+        dictPlayer = {
             'last_name': self.last_name,
             'first_name': self.first_name,
             'birth_date': self.birth_date,
@@ -35,8 +38,8 @@ class Player:
             'tournamentPoints': self.tournamentPoints,
             'previousOpponents': self.previousOpponents
         }
-        return serializedPlayer
+        return dictPlayer
 
     @classmethod
-    def unserialize(cls, serializedPlayer):
+    def toObject(cls, serializedPlayer):
         return cls(**serializedPlayer)
