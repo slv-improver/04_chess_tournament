@@ -79,6 +79,10 @@ class TournamentController:
             )
         )
 
+    def clearPreviousOpponents(self):
+        for player in self.tournamentModel.player_list:
+            del player.previousOpponents[:]
+
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
         self.tournamentDao.insertData(dictTournament)

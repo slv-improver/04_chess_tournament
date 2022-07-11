@@ -64,6 +64,7 @@ class Controller:
             key=lambda x: (-x.tournamentPoints, x.ranking)
         )
         self.tournament.declareWinner()
+        self.tournament.clearPreviousOpponents()
         self.tournament.storeTournament()
 
     def createPlayer(self):
