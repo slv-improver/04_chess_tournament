@@ -42,7 +42,7 @@ class RoundController:
     def generatePairsOtherRounds(self, player_list):
         ordered_player_list = sorted(
             player_list,
-            key=lambda x: (-x.tournamentPoints, x.ranking)
+            key=lambda x: (-x.tournament_points, x.ranking)
         )
 
         while len(ordered_player_list) > 0:
@@ -51,7 +51,7 @@ class RoundController:
             # Don't pairs top player with someone he has already play against
             if len(ordered_player_list) == len(player_list):
                 while ordered_player_list[i_player1] \
-                in ordered_player_list[i_player2].previousOpponents:
+                in ordered_player_list[i_player2].previous_opponents:
                     i_player2 += 1
             match = MatchController(
                 ordered_player_list[i_player1],
