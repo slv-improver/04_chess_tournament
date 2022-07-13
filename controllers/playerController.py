@@ -44,6 +44,11 @@ class PlayerController:
                 if (j not in hidden_players):
                     print(f'{j+1} — {player.last_name} {player.first_name}')
             choice = int(input('Entrez le numéro du joueur à ajouter : '))
+            if (choice-1 in hidden_players or 
+            choice-1 < 0 or 
+            choice-1 >= len(all_players)):
+                print('Vérifiez le nombre')
+                continue
             players_for_tournament.append(all_players[choice-1])
             hidden_players.append(choice-1)
         return players_for_tournament
