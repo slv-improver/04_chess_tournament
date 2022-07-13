@@ -61,10 +61,10 @@ class Controller:
             self.tournament.startRound(round + 1)
 
         self.tournament.tournamentModel.player_list.sort(
-            key=lambda x: (-x.tournamentPoints, x.ranking)
+            key=lambda x: (-x.tournament_points, x.ranking)
         )
         self.tournament.declareWinner()
-        self.tournament.clearPreviousOpponents()
+        self.tournament.clearprevious_opponents()
         self.tournament.storeTournament()
 
     def createPlayer(self):

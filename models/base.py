@@ -8,6 +8,7 @@ class Base(ABC):
         dictData = {}
         for key, value in vars(self).items():
             try:
+                # try serialization to raise error if not serializable
                 json.dumps(value)
                 dictData[key] = value
             except TypeError:
@@ -15,7 +16,7 @@ class Base(ABC):
                     new_value = self.iterate(value)
                     dictData[key] = new_value
                 else:
-                    dictData[key] = toDict(value)
+                    dictData[key] = value.toDict()
         return dictData
 
     def iterate(self, iterable):

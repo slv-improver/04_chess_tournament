@@ -66,7 +66,7 @@ class TournamentController:
     def declareWinner(self):
         winner = max(
             self.tournamentModel.player_list,
-            key=lambda x: (x.tournamentPoints, -x.ranking)
+            key=lambda x: (x.tournament_points, -x.ranking)
         )
         print(
             self.tournamentView.theWinnerIs(
@@ -75,9 +75,9 @@ class TournamentController:
             )
         )
 
-    def clearPreviousOpponents(self):
+    def clearprevious_opponents(self):
         for player in self.tournamentModel.player_list:
-            del player.previousOpponents[:]
+            del player.previous_opponents[:]
 
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
