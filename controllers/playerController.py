@@ -39,7 +39,7 @@ class PlayerController:
     def choosePlayers(self, all_players, number_of_players):
         players_for_tournament = []
         hidden_players = []
-        for i in range(number_of_players):
+        while (len(players_for_tournament) < number_of_players):
             for j, player in enumerate(all_players):
                 if (j not in hidden_players):
                     print(f'{j+1} — {player.last_name} {player.first_name}')
