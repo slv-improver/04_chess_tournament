@@ -17,15 +17,11 @@ class TournamentController:
     def askTournamentInfo(self):
         name = input('Quel est le nom du tournoi ? ')
         place = input('Le lieu ? ')
-        date = input('La date de début ? (Aujourd\'hui) ')
-        if date == '':
-            date = datetime.today().strftime('%d/%m/%Y')
-        end_date = input('La date de fin ? (Aujourd\'hui) ')
-        if end_date == '':
-            end_date = datetime.today().strftime('%d/%m/%Y')
-        number_of_rounds = int(input('Le nombre de tours ? (4) '))
-        if number_of_rounds == '':
-            number_of_rounds = 4
+        date = (input('La date de début ? (Aujourd\'hui) ') or 
+        datetime.today().strftime('%d/%m/%Y'))
+        end_date = (input('La date de fin ? (Aujourd\'hui) ') or 
+        datetime.today().strftime('%d/%m/%Y'))
+        number_of_rounds = int(input('Le nombre de tours ? (4) ') or '4')
         time_management = int(input(
             'Le mode de jeu ?\n 1—Bullet - 2—Blitz - 3—Coup rapide : '
         ))
@@ -36,9 +32,9 @@ class TournamentController:
                 time_management = 'Blitz'
             case 3:
                 time_management = 'Coup rapide'
-        description = input('Remarques relatives au tournoi : ')
-        if description == '':
-            description = "Pas de remarques"
+        description = input(
+            'Remarques relatives au tournoi : '
+        ) or "Pas de remarques"
 
         self.tournamentModel = TournamentModel(
             name,
