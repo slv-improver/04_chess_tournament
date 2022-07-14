@@ -45,6 +45,8 @@ class Controller:
                     self.startTournament()
                 case 2:
                     self.createPlayer()
+                case 3:
+                    self.generateReport()
 
         quit()
 
@@ -73,3 +75,6 @@ class Controller:
             player = PlayerController().playerModel
             self.players.append(player)
         self.master_player.storePlayers(self.players)
+
+    def generateReport(self):
+        pass
