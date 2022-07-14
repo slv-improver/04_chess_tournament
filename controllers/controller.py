@@ -2,6 +2,7 @@ from views.welcome import Welcome
 from views.menu import Menu
 from .tournamentController import TournamentController
 from .playerController import PlayerController
+from .reportController import ReportController
 
 
 class Controller:
@@ -13,6 +14,7 @@ class Controller:
         self.players = self.master_player.getPlayers()
         self.players_for_tournament = []
         self.tournament = None
+        self.reportController = None
         self.handleGame()
 
     def printError(self, message):
@@ -77,4 +79,4 @@ class Controller:
         self.master_player.storePlayers(self.players)
 
     def generateReport(self):
-        pass
+        self.reportController = ReportController()
