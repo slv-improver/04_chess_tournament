@@ -22,7 +22,7 @@ class Controller:
 
     def welcome(self):
         welcome = Welcome()
-        print(welcome.display)
+        welcome.displayTitle()
 
     def menuLister(self):
         menu = Menu()

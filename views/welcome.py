@@ -1,8 +1,12 @@
-class Welcome:
+from .base import Base
+
+
+class Welcome(Base):
     """Display the Welcome message"""
 
     def __init__(self):
-        self.display = """
+        super().__init__()
+        self.title = """
         ————————————————————
         |  Welcome to the  |
         | Chess Tournament |
