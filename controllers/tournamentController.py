@@ -71,7 +71,7 @@ class TournamentController:
         )
         print(
             self.tournamentView.theWinnerIs(
-                winner,
+                ranking[0],
                 self.tournamentModel.name
             )
         )
