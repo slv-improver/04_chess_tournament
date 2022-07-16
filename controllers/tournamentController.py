@@ -71,8 +71,9 @@ class TournamentController:
         )
         print(
             self.tournamentView.theWinnerIs(
-            ranking[0],
-            self.tournamentModel.name
+                ranking[0],
+                self.tournamentModel.name
+            )
         )
 
     def clearprevious_opponents(self):
