@@ -10,7 +10,7 @@ class Tournament(Base):
         )
 
     def theWinnerIs(self, winner, tournamentName):
-        return (
+        print(
             f'\nLe vainqeur du tournoi “{tournamentName}” est\n'
             f'——— {winner.last_name} {winner.first_name} ———\n'
             f'avec {winner.tournament_points} point(s)\n____\n_____'
