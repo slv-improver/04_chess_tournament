@@ -1,7 +1,11 @@
-class Tournament:
+from .base import Base
+
+
+class Tournament(Base):
 
     def __init__(self):
-        self.display = (
+        super().__init__()
+        self.title = (
             '\n—— Le tournoi commence ——\n'
         )
 

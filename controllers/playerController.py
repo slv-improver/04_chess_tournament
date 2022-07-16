@@ -13,7 +13,7 @@ class PlayerController:
         self.playerModel = None
         if not master:
             self.askPlayerInfo()
-            print(self.playerView.display)
+            self.playerView.displayTitle()
         else:
             self.playerModel = PlayerModel()
 

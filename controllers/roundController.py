@@ -9,7 +9,7 @@ class RoundController:
     def __init__(self, round_number):
         self.round_number = round_number
         self.roundView = RoundView(self.round_number)
-        print(self.roundView.display)
+        self.roundView.displayTitle()
         self.roundModel = None
         self.askRoundInfo()
         self.matches_list = []

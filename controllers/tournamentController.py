@@ -10,7 +10,7 @@ class TournamentController:
     def __init__(self):
         self.tournamentDao = TournamentDAO()
         self.tournamentView = TournamentView()
-        print(self.tournamentView.display)
+        self.tournamentView.displayTitle()
         self.tournamentModel = None
         self.askTournamentInfo()
 

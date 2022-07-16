@@ -1,4 +1,7 @@
-class Menu:
+from .base import Base
+
+
+class Menu(Base):
     """Display the menu"""
 
     def __init__(self):
