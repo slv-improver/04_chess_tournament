@@ -4,7 +4,6 @@ from .base import Base
 class Tournament(Base):
 
     def __init__(self):
-        super().__init__()
         self.title = (
             '\n—— Le tournoi commence ——\n'
         )
