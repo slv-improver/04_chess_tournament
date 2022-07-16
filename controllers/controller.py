@@ -26,7 +26,7 @@ class Controller:
 
     def menuLister(self):
         menu = Menu()
-        print(menu.display)
+        menu.displayMenu()
         try:
             user_input = int(input('Faites votre choix : '))
             if user_input > 0 and user_input <= 4:
