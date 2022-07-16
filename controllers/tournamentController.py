@@ -64,9 +64,10 @@ class TournamentController:
         round.completeRound()
 
     def declareWinner(self):
-        winner = max(
+        ranking = sorted(
             self.tournamentModel.player_list,
-            key=lambda x: (x.tournament_points, -x.ranking)
+            key=lambda x: (x.tournament_points, -x.ranking),
+            reverse=True
         )
         print(
             self.tournamentView.theWinnerIs(
