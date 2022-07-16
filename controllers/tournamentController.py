@@ -69,11 +69,9 @@ class TournamentController:
             key=lambda x: (x.tournament_points, -x.ranking),
             reverse=True
         )
-        print(
-            self.tournamentView.theWinnerIs(
-                ranking[0],
-                self.tournamentModel.name
-            )
+        self.tournamentView.theWinnerIs(
+            ranking[0],
+            self.tournamentModel.name
         )
 
     def clearprevious_opponents(self):
