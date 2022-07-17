@@ -8,14 +8,14 @@ class MatchController:
         self.player1 = player1
         self.player2 = player2
         self.matchView = MatchView(player1, player2)
-        print(self.matchView.display)
+        self.matchView.displayTitle()
         self.matchModel = MatchModel(
             ([self.player1, 0], [self.player2, 0])
         )
 
     def askMatchResult(self):
         result = int(input(
-            f'——————\n'
+            f'—————— Qui a gagné ?\n'
             f'1— {self.player1.last_name} {self.player1.first_name}\n'
             f'2— {self.player2.last_name} {self.player2.first_name}\n'
             f'0— Match nul\n'
@@ -35,5 +35,5 @@ class MatchController:
         self.player1.addPoints(score1)
         self.player2.addPoints(score2)
 
-        self.player1.previousOpponents.append(self.player2)
-        self.player2.previousOpponents.append(self.player1)
+        self.player1.previous_opponents.append(self.player2)
+        self.player2.previous_opponents.append(self.player1)

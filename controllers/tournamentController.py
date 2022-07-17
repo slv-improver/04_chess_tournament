@@ -2,28 +2,26 @@ from datetime import datetime
 from views.tournament import Tournament as TournamentView
 from models.tournament import Tournament as TournamentModel
 from .roundController import RoundController
+from dao.tournamentDao import TournamentDAO
 
 
 class TournamentController:
 
     def __init__(self):
+        self.tournamentDao = TournamentDAO()
         self.tournamentView = TournamentView()
-        print(self.tournamentView.display)
+        self.tournamentView.displayTitle()
         self.tournamentModel = None
         self.askTournamentInfo()
 
     def askTournamentInfo(self):
         name = input('Quel est le nom du tournoi ? ')
         place = input('Le lieu ? ')
-        date = input('La date de début ? (Aujourd\'hui) ')
-        if date == '':
-            date = datetime.today()
-        end_date = input('La date de fin ? (Aujourd\'hui) ')
-        if end_date == '':
-            end_date = datetime.today()
-        number_of_rounds = input('Le nombre de tours ? (4)')
-        if number_of_rounds == '':
-            number_of_rounds = 4
+        date = (input('La date de début ? (Aujourd\'hui) ') or 
+        datetime.today().strftime('%d/%m/%Y'))
+        end_date = (input('La date de fin ? (Aujourd\'hui) ') or 
+        datetime.today().strftime('%d/%m/%Y'))
+        number_of_rounds = int(input('Le nombre de tours ? (4) ') or '4')
         time_management = int(input(
             'Le mode de jeu ?\n 1—Bullet - 2—Blitz - 3—Coup rapide : '
         ))
@@ -34,9 +32,9 @@ class TournamentController:
                 time_management = 'Blitz'
             case 3:
                 time_management = 'Coup rapide'
-        description = input('Remarques relatives au tournoi : ')
-        if description == '':
-            description = "Pas de remarques"
+        description = input(
+            'Remarques relatives au tournoi : '
+        ) or "Pas de remarques"
 
         self.tournamentModel = TournamentModel(
             name,
@@ -63,3 +61,31 @@ class TournamentController:
                 self.tournamentModel.player_list
             )
         round.askMatchResult()
+        round.completeRound()
+
+    def declareWinner(self):
+        ranking = sorted(
+            self.tournamentModel.player_list,
+            key=lambda x: (x.tournament_points, -x.ranking),
+            reverse=True
+        )
+        self.tournamentView.theWinnerIs(
+            ranking[0],
+            self.tournamentModel.name
+        )
+        self.tournamentView.displayRanking(ranking[1:])
+
+    def clearprevious_opponents(self):
+        for player in self.tournamentModel.player_list:
+            del player.previous_opponents[:]
+
+    def storeTournament(self):
+        dictTournament = self.tournamentModel.toDict()
+        self.tournamentDao.insertData(dictTournament)
+
+    def updateRanking(self):
+        for player in self.tournamentModel.player_list:
+            player.ranking = int(input(
+                f'Nouveau classment de \n \
+                {player.last_name} {player.first_name}'
+            ))

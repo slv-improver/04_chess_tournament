@@ -1,4 +1,7 @@
-class Tournament:
+from .base import Base
+
+
+class Tournament(Base):
     """The tournament will manage matches between players"""
 
     def __init__(
