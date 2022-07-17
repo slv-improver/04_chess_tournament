@@ -69,6 +69,7 @@ class Controller:
         )
         self.tournament.declareWinner()
         self.tournament.clearprevious_opponents()
+        self.tournament.updateRanking()
         self.tournament.storeTournament()
 
     def createPlayer(self):
