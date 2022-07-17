@@ -87,5 +87,24 @@ class Controller:
         if input('Voulez-vous ajouter un autre joueur ? (Non)') != '':
             self.createPlayer()
 
+    def updateRanking(self):
+        breaker = None
+        while (breaker != ''):
+            for i, player in enumerate(self.players):
+                print(
+                    f'{i+1} — {player.last_name} '
+                    f'{player.first_name} '
+                    f'{player.ranking}'
+                )
+            choice = int(input('Quel joueur mettre à jour : '))
+            if (choice-1 < 0 or 
+            choice-1 >= len(self.players)):
+                print('Vérifiez le nombre')
+                continue
+            self.players[choice-1].ranking = int(input(
+                'Nouveau rang : '
+            ))
+            breaker = input('Voulez-vous recommencer ? (Non)')
+
     def generateReport(self):
         self.reportController = ReportController()
