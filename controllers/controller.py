@@ -46,7 +46,7 @@ class Controller:
                 case 1:
                     self.startTournament()
                 case 2:
-                    self.createPlayer()
+                    self.managePlayers()
                 case 3:
                     self.generateReport()
 
@@ -71,6 +71,9 @@ class Controller:
         self.tournament.clearprevious_opponents()
         self.tournament.updateRanking()
         self.tournament.storeTournament()
+
+    def managePlayers(self):
+        self.createPlayer()
 
     def createPlayer(self):
         number_of_players = int(input('Combien de joueur ? '))
