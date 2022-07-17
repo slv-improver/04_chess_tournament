@@ -76,11 +76,11 @@ class Controller:
         self.createPlayer()
 
     def createPlayer(self):
-        number_of_players = int(input('Combien de joueur ? '))
-        for i in range(number_of_players):
-            player = PlayerController().playerModel
-            self.players.append(player)
+        player = PlayerController().playerModel
+        self.players.append(player)
         self.master_player.storePlayers(self.players)
+        if input('Voulez-vous ajouter un autre joueur ? (Non)') != '':
+            self.createPlayer()
 
     def generateReport(self):
         self.reportController = ReportController()
