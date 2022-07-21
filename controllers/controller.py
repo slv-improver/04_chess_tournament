@@ -88,8 +88,8 @@ class Controller:
             self.createPlayer()
 
     def updateRanking(self):
-        breaker = None
-        while (breaker != ''):
+        stopper = 1
+        while (stopper != ''):
             for i, player in enumerate(self.players):
                 print(
                     f'{i+1} — {player.last_name} '
@@ -104,7 +104,7 @@ class Controller:
             self.players[choice-1].ranking = int(input(
                 'Nouveau rang : '
             ))
-            breaker = input('Voulez-vous recommencer ? (Non)')
+            stopper = input('Voulez-vous recommencer ? (Non)')
 
     def generateReport(self):
         self.reportController = ReportController()
