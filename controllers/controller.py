@@ -69,7 +69,7 @@ class Controller:
         )
         self.tournament.declareWinner()
         self.tournament.clearprevious_opponents()
-        self.tournament.updateRanking()
+        self.tournament.updateRanking(self.players_for_tournament)
         self.tournament.storeTournament()
 
     def managePlayers(self):
@@ -87,19 +87,26 @@ class Controller:
         if input('Voulez-vous ajouter un autre joueur ? (Non)') != '':
             self.createPlayer()
 
-    def updateRanking(self):
-        stopper = 1
-        while (stopper != ''):
-            self.master_player.playerView.displayPlayers(self.players)
+    def updateRanking(self, players=None):
+        if not players:
+            players = self.players 
+        while (len(players) > 0):
+            self.master_player.playerView.displayPlayers(players)
             choice = int(input('Quel joueur mettre à jour : '))
             if (choice-1 < 0 or 
-            choice-1 >= len(self.players)):
+            choice-1 >= len(players)):
                 print('Vérifiez le nombre')
                 continue
-            self.players[choice-1].ranking = int(input(
+            players[choice-1].ranking = int(input(
                 'Nouveau rang : '
             ))
-            stopper = input('Voulez-vous recommencer ? (Non)')
+            self.master_player.storePlayers(players)
+            if (players == self.players):
+                if (input('Voulez-vous recommencer ? (Non) ') != ''):
+                    continue
+                else: break
+            else:
+                del players[choice-1]
 
     def generateReport(self):
         self.reportController = ReportController()
