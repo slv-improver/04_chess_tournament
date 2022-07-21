@@ -90,12 +90,7 @@ class Controller:
     def updateRanking(self):
         stopper = 1
         while (stopper != ''):
-            for i, player in enumerate(self.players):
-                print(
-                    f'{i+1} — {player.last_name} '
-                    f'{player.first_name} '
-                    f'{player.ranking}'
-                )
+            self.master_player.playerView.displayPlayers(self.players)
             choice = int(input('Quel joueur mettre à jour : '))
             if (choice-1 < 0 or 
             choice-1 >= len(self.players)):
