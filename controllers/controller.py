@@ -73,11 +73,11 @@ class Controller:
         self.tournament.storeTournament()
 
     def managePlayers(self):
-        choices = {1: self.createPlayer, 2: self.updateRanking}
-        user_choice = int(input(
+        choices = {'1': self.createPlayer, '2': self.updateRanking}
+        user_choice = input(
             '1— Créer un joueur\n'
             '2— Mettre à jour le classement\n'
-        ))
+        )
         choices[user_choice]()
 
     def createPlayer(self):
