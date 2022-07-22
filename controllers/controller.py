@@ -40,15 +40,13 @@ class Controller:
     def handleGame(self):
         user_input = 0
         while user_input != 4:
+            choices = {
+                '1': self.startTournament,
+                '2': self.managePlayers,
+                '3': self.generateReport
+            }
             user_input = self.menuLister()
-
-            match user_input:
-                case 1:
-                    self.startTournament()
-                case 2:
-                    self.managePlayers()
-                case 3:
-                    self.generateReport()
+            choices[user_input]()
 
         quit()
 
