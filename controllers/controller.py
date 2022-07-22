@@ -108,3 +108,4 @@ class Controller:
 
     def generateReport(self):
         self.reportController = ReportController()
+        self.reportController.chooseReport()
