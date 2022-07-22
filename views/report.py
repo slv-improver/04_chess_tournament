@@ -10,3 +10,11 @@ class Report(Base):
 
     def displayTitle(self):
         print(self.title)
+
+    def displayTournaments(self, tournamentsModel):
+        for i, tournament in enumerate(tournamentsModel):
+            print(
+                f'{i}— Tournoi \'{tournament.name}\''
+                f' — à {tournament.place}'
+                f' — le {tournament.date}\n———'
+            )
