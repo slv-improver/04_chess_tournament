@@ -5,7 +5,7 @@ class Report(Base):
 
     def __init__(self):
         self.title = (
-            '\n—— Génération de rapport ——\n'
+            '\n—— Génération de rapports ——\n'
         )
 
     def displayTitle(self):
