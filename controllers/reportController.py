@@ -5,3 +5,4 @@ class ReportController:
 
     def __init__(self):
         self.reportView = ReportView()
+        self.reportView.displayTitle()
