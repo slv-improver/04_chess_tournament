@@ -1,4 +1,6 @@
 from views.report import Report as ReportView
+from dao.tournamentDao import TournamentDAO
+from models.tournament import Tournament
 
 
 class ReportController:
@@ -6,6 +8,7 @@ class ReportController:
     def __init__(self):
         self.reportView = ReportView()
         self.reportView.displayTitle()
+        self.tournamentDao = TournamentDAO()
 
     def chooseReport(self):
         choices = {
