@@ -20,17 +20,12 @@ class MatchController:
             f'2— {self.player2.last_name} {self.player2.first_name}\n'
             f'0— Match nul\n'
         ))
-
-        score1 = score2 = 0
-        match result:
-            case 0:
-                score1 = score2 = 0.5
-            case 1:
-                score1 = 1
-            case 2:
-                score2 = 1
-
-        self.matchModel.updateScores(score1, score2)
+        scores = {
+            1: [1, 0],
+            2: [0, 1],
+            0: [0.5, 0.5]
+        }
+        self.matchModel.updateScores(*scores[result])
 
         self.player1.addPoints(score1)
         self.player2.addPoints(score2)
