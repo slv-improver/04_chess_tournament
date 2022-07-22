@@ -41,9 +41,9 @@ class Controller:
         user_input = 0
         while user_input != 4:
             choices = {
-                '1': self.startTournament,
-                '2': self.managePlayers,
-                '3': self.generateReport
+                1: self.startTournament,
+                2: self.managePlayers,
+                3: self.generateReport
             }
             user_input = self.menuLister()
             choices[user_input]()
