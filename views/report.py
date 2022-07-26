@@ -8,9 +8,6 @@ class Report(Base):
             '\n—— Génération de rapports ——\n'
         )
 
-    def displayTitle(self):
-        print(self.title)
-
     def displayTournaments(self, tournaments):
         print('\n——— Liste des tournois passés :\n———')
         for i, tournament in enumerate(tournaments):
