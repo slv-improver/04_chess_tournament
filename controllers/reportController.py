@@ -12,8 +12,8 @@ class ReportController:
 
     def chooseReport(self):
         choices = {
-                '1': self.reportPlayers(),
-                '2': self.reportTournaments()
+                '1': self.reportPlayers,
+                '2': self.reportTournaments
             }
         user_choice = input(
             '1— Joueurs\n'
