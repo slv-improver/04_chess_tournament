@@ -27,3 +27,12 @@ class Report(Base):
                 f'Classement : {player["ranking"]}'
                 'ème' if player["ranking"] > 1 else 'er'
             )
+
+    def reportTournamentRounds(self, tournament_name, rounds):
+        print(f'\n———Voici les tours du tournoi {tournament_name} :\n———')
+        for round in rounds:
+            print(
+                f'— Le tour {round["name"]}\n'
+                f'Début : {round["start_time"]}\n'
+                f'Fin : {round["end_time"]}'
+            )

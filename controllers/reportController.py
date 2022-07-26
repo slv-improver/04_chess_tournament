@@ -49,7 +49,12 @@ class ReportController:
         self.reportView.reportTournamentPlayers(tournament['name'], players)
 
     def reportTournamentRounds(self, tournament):
-        pass
+        rounds = []
+        for round in tournament['round_list']:
+            round_copy = round.copy()
+            round_copy.pop('matches_list')
+            rounds.append(round_copy)
+        self.reportView.reportTournamentRounds(tournament['name'], rounds)
 
     def reportTournamentMatches(self, tournament):
         pass
