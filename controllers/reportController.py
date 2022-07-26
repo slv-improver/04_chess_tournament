@@ -16,8 +16,8 @@ class ReportController:
                 '2': self.reportTournaments
             }
         user_choice = input(
-            '1— Joueurs\n'
-            '2— Tournois\n'
+            '1— Tous les joueurs\n'
+            '2— Tous les tournois\n'
         )
         choices[user_choice]()
 
