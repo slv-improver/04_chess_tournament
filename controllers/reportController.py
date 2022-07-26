@@ -19,7 +19,7 @@ class ReportController:
             '1— Joueurs\n'
             '2— Tournois\n'
         )
-        choices[user_input]()
+        choices[user_choice]()
 
     def reportPlayers(self):
         pass
