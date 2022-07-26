@@ -8,6 +8,17 @@ class Report(Base):
             '\n—— Génération de rapports ——\n'
         )
 
+    def reportPlayers(self, players):
+        for player in players:
+            gender = 'M' if player["gender"] == 'M' else 'Mme'
+            e = '' if player["gender"] == 'M' else 'e'
+            print(
+                f'— {gender} {player["last_name"]} {player["first_name"]}\n'
+                f'né{e} le {player["birth_date"]}\n'
+                f'Classement : {player["ranking"]}'
+                'ème' if player["ranking"] > 1 else 'er'
+            )
+
     def displayTournaments(self, tournaments):
         print('\n——— Liste des tournois passés :\n———')
         for i, tournament in enumerate(tournaments):
@@ -18,15 +29,7 @@ class Report(Base):
             )
     def reportTournamentPlayers(self, tournament_name, players):
         print(f'\n———Voici les joueurs du tournoi {tournament_name} :\n———')
-        for player in players:
-            gender = 'M' if player["gender"] == 'M' else 'Mme'
-            e = '' if player["gender"] == 'M' else 'e'
-            print(
-                f'— {gender} {player["last_name"]} {player["first_name"]}\n'
-                f'né{e} le {player["birth_date"]}\n'
-                f'Classement : {player["ranking"]}'
-                'ème' if player["ranking"] > 1 else 'er'
-            )
+        self.reportPlayers(players)
 
     def reportTournamentRounds(self, tournament_name, rounds):
         print(f'\n———Voici les tours du tournoi {tournament_name} :\n———')
