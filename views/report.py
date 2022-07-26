@@ -12,6 +12,7 @@ class Report(Base):
         print(self.title)
 
     def displayTournaments(self, tournaments):
+        print('\n——— Liste des tournois passés :\n———')
         for i, tournament in enumerate(tournaments):
             print(
                 f'{i+1}— Tournoi \'{tournament["name"]}\''
