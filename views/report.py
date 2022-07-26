@@ -9,6 +9,7 @@ class Report(Base):
         )
 
     def reportPlayers(self, players):
+        print('\n——— Liste de tous les joueurs inscrits :\n———')
         for player in players:
             gender = 'M' if player["gender"] == 'M' else 'Mme'
             e = '' if player["gender"] == 'M' else 'e'
