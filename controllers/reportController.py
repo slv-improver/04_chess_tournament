@@ -1,5 +1,6 @@
 from views.report import Report as ReportView
 from dao.tournamentDao import TournamentDAO
+from dao.playerDao import PlayerDAO
 
 
 class ReportController:
@@ -8,6 +9,7 @@ class ReportController:
         self.reportView = ReportView()
         self.reportView.displayTitle()
         self.tournamentDao = TournamentDAO()
+        self.playerDao = PlayerDAO()
 
     def chooseReport(self):
         choices = {
