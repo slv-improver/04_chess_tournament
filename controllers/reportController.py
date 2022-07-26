@@ -45,7 +45,8 @@ class ReportController:
         choices[user_choice](dictTournaments[user_tournament])
 
     def reportTournamentPlayers(self, tournament):
-        pass
+        players = tournament["player_list"]
+        self.reportView.reportTournamentPlayers(tournament['name'], players)
 
     def reportTournamentRounds(self, tournament):
         pass
