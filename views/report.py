@@ -29,11 +29,11 @@ class Report(Base):
                 f' — le {tournament["date"]}\n———'
             )
     def reportTournamentPlayers(self, tournament_name, players):
-        print(f'\n———Voici les joueurs du tournoi {tournament_name} :\n———')
+        print(f'\n——— Voici les joueurs du tournoi {tournament_name} :\n———')
         self.reportPlayers(players)
 
     def reportTournamentRounds(self, tournament_name, rounds):
-        print(f'\n———Voici les tours du tournoi {tournament_name} :\n———')
+        print(f'\n——— Voici les tours du tournoi {tournament_name} :\n———')
         for round in rounds:
             print(
                 f'— Le tour {round["name"]}\n'
