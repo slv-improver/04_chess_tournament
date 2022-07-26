@@ -29,10 +29,5 @@ class ReportController:
 
     def chooseTournament(self):
         dictTournaments = self.tournamentDao.getAll()
-        tournaments - []
-        for dictTournament in dictTournaments:
-            tournaments.append(
-                Tournament().toObject(dictTournament)
-            )
-        self.reportView.displayTournaments(tournaments)
+        self.reportView.displayTournaments(dictTournaments)
         user_choice = input('Choisissez un tournoi : ')
