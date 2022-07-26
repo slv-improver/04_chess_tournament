@@ -1,6 +1,5 @@
 from views.report import Report as ReportView
 from dao.tournamentDao import TournamentDAO
-from models.tournament import Tournament
 
 
 class ReportController:
