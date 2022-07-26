@@ -23,7 +23,8 @@ class ReportController:
         choices[user_choice]()
 
     def reportPlayers(self):
-        pass
+        dictPlayers = self.playerDao.getAll()
+        self.reportView.reportPlayers(dictPlayers)
 
     def reportTournaments(self):
         self.chooseTournament()
