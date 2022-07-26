@@ -36,3 +36,16 @@ class Report(Base):
                 f'Début : {round["start_time"]}\n'
                 f'Fin : {round["end_time"]}'
             )
+
+    def reportTournamentMatches(self, tournament_name, rounds):
+        print(f'\n——— Voici les matches du tournoi {tournament_name} :\n———')
+        for i, round in enumerate(rounds):
+            print('—— Tour', i+1)
+            for match in round:
+                scores = match['scores']
+                print(
+                    '—\n'
+                    f'{scores[0][0]} => {scores[0][1]}\n'
+                    f'{scores[1][0]} => {scores[1][1]}'
+                )
+            print('—')
