@@ -1,5 +1,6 @@
 # Entry point of the program
 
+from pynput import keyboard
 from controllers.controller import Controller
 
 
@@ -8,4 +9,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    with keyboard.GlobalHotKeys({
+        '<ctrl>+s': saveGame,
+        '<ctrl>+w': loadGame,
+        '<ctrl>+q': quitGame
+    }):
+        main()
