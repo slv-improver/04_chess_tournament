@@ -4,8 +4,10 @@ from pynput import keyboard
 from controllers.controller import Controller
 
 
+game_controller = Controller()
+
 def main():
-    Controller()
+    game_controller.launchGame()
 
 
 if __name__ == '__main__':
