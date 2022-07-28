@@ -8,7 +8,7 @@ from .reportController import ReportController
 class Controller:
     """Base controller"""
 
-    def __init__(self):
+    def launchGame(self):
         self.welcome()
         self.master_player = PlayerController(master=True)
         self.players = self.master_player.getPlayers()
