@@ -78,17 +78,11 @@ class ReportController:
             'Lister les joueurs par classement ? '
             '(Par défaut : ordre alphabétique) : '
         )
-        return False if by_rank == '' else True
+        return 'ranking' if by_rank != '' else 'last_name'
 
-    def sortPlayers(self, players, by_rank=False):
-        if by_rank:
-            sorted_players = sorted(
-                players,
-                key=lambda x: (x['last_name'])
-            )
-        else:
-            sorted_players = sorted(
-                players,
-                key=lambda x: (x['ranking'])
-            )
+    def sortPlayers(self, players, sorting_method):
+        sorted_players = sorted(
+            players,
+            key=lambda x: (x[sorting_method])
+        )
         return sorted_players
