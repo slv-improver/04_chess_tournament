@@ -23,7 +23,11 @@ class ReportController:
         choices[user_choice]()
 
     def reportPlayers(self):
-        dictPlayers = self.playerDao.getAll()
+        sort_by_rank = self.chooseSortingMethod()
+        dictPlayers = self.sortPlayers(
+            self.playerDao.getAll(),
+            sort_by_rank
+        )
         self.reportView.reportPlayers(dictPlayers)
 
     def reportTournaments(self):
@@ -47,7 +51,11 @@ class ReportController:
         choices[user_choice](dictTournaments[user_tournament])
 
     def reportTournamentPlayers(self, tournament):
-        players = tournament["player_list"]
+        sort_by_rank = self.chooseSortingMethod()
+        players = self.sortPlayers(
+            tournament["player_list"],
+            sort_by_rank
+        )
         self.reportView.reportTournamentPlayers(tournament['name'], players)
 
     def reportTournamentRounds(self, tournament):
@@ -64,3 +72,23 @@ class ReportController:
             round_copy = round['matches_list']
             rounds.append(round_copy)
         self.reportView.reportTournamentMatches(tournament['name'], rounds)
+
+    def chooseSortingMethod(self):
+        by_rank = input(
+            'Lister les joueurs par classement ? '
+            '(Par défaut : ordre alphabétique) : '
+        )
+        return False if by_rank == '' else True
+
+    def sortPlayers(self, players, by_rank=False):
+        if by_rank:
+            sorted_players = sorted(
+                players,
+                key=lambda x: (x['last_name'])
+            )
+        else:
+            sorted_players = sorted(
+                players,
+                key=lambda x: (x['ranking'])
+            )
+        return sorted_players
