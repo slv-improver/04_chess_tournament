@@ -35,7 +35,6 @@ class Controller:
                 self.printError('Le nombre n\'est pas compris dans la liste')
         except ValueError:
             self.printError('Il faut entrer un nombre')
-            return 0
 
     def handleGame(self):
         user_input = 0
@@ -46,7 +45,8 @@ class Controller:
                 3: self.generateReport
             }
             user_input = self.menuLister()
-            choices[user_input]()
+            if user_input != None:
+                choices[user_input]()
 
         quit()
 
