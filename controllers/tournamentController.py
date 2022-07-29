@@ -77,10 +77,3 @@ class TournamentController:
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
         self.tournamentDao.insertData(dictTournament)
-
-    def updateRanking(self):
-        for player in self.tournamentModel.player_list:
-            player.ranking = int(input(
-                f'Nouveau classment de \n \
-                {player.last_name} {player.first_name}'
-            ))
