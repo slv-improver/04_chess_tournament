@@ -22,3 +22,4 @@ class Tournament(Base):
                 f'— {player.last_name} {player.first_name} '
                 f'avec {player.tournament_points} point(s)'
             )
+        print('')
