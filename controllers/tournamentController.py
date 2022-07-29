@@ -23,9 +23,9 @@ class TournamentController:
         datetime.today().strftime('%d/%m/%Y'))
         number_of_rounds = int(input('Le nombre de tours ? (4) ') or '4')
         t_m_choices = {'1': 'Bullet', '2': 'Blitz', '3': 'Coup rapide'}
-        t_m_user_choice = int(input(
+        t_m_user_choice = input(
             'Le mode de jeu ?\n 1—Bullet - 2—Blitz - 3—Coup rapide : '
-        ) or t_m_choices['1'])
+        ) or t_m_choices['1']
         time_management = t_m_choices[t_m_user_choice]
         description = input(
             'Remarques relatives au tournoi : '
