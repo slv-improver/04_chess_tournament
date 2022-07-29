@@ -27,8 +27,8 @@ class MatchController:
         }
         self.matchModel.updateScores(*scores[result])
 
-        self.player1.addPoints(score1)
-        self.player2.addPoints(score2)
+        self.player1.addPoints(scores[result][0])
+        self.player2.addPoints(scores[result][1])
 
         self.player1.previous_opponents.append(self.player2)
         self.player2.previous_opponents.append(self.player1)
