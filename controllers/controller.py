@@ -86,9 +86,10 @@ class Controller:
             self.createPlayer()
 
     def updateRanking(self, players=None):
+        new_loop = 'yes'
         if not players:
             players = self.players 
-        while (len(players) > 0):
+        while (new_loop != '' or new_loop != 'n'):
             self.master_player.playerView.displayPlayers(players)
             choice = int(input('Quel joueur mettre à jour : '))
             if (choice-1 < 0 or 
@@ -96,15 +97,10 @@ class Controller:
                 print('Vérifiez le nombre')
                 continue
             players[choice-1].ranking = int(input(
-                'Nouveau rang : '
+                f'Nouveau rang : ({players[choice-1].ranking}) '
             ))
             self.master_player.storePlayers(players)
-            if (players == self.players):
-                if (input('Voulez-vous recommencer ? (Non) ') != ''):
-                    continue
-                else: break
-            else:
-                del players[choice-1]
+            new_loop = input('Voulez-vous recommencer ? (Non) ')
 
     def generateReport(self):
         self.reportController = ReportController()
