@@ -74,6 +74,10 @@ class TournamentController:
         for player in self.tournamentModel.player_list:
             del player.previous_opponents[:]
 
+    def clearTournamentPoints(self):
+        for player in self.tournamentModel.player_list:
+            player.tournament_points = 0
+
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
         self.tournamentDao.insertData(dictTournament)
