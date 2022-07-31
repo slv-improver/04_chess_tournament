@@ -89,7 +89,7 @@ class Controller:
         new_loop = 'yes'
         if not players:
             players = self.players 
-        while (new_loop != '' or new_loop != 'n'):
+        while (new_loop != '' and new_loop != 'n'):
             self.master_player.playerView.displayPlayers(players)
             choice = int(input('Quel joueur mettre à jour : '))
             if (choice-1 < 0 or 
