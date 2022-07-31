@@ -99,7 +99,7 @@ class Controller:
             players[choice-1].ranking = int(input(
                 f'Nouveau rang : ({players[choice-1].ranking}) '
             ))
-            self.master_player.storePlayers(players)
+            self.master_player.storePlayers(self.players)
             new_loop = input('Voulez-vous recommencer ? (Non) ')
 
     def generateReport(self):
