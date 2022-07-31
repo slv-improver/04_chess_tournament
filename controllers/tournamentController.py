@@ -70,7 +70,11 @@ class TournamentController:
         )
         self.tournamentView.displayRanking(ranking[1:])
 
-    def clearprevious_opponents(self):
+    def clearPlayersInfo(self):
+        self.clearPreviousOpponents()
+        self.clearTournamentPoints()
+
+    def clearPreviousOpponents(self):
         for player in self.tournamentModel.player_list:
             del player.previous_opponents[:]
 
