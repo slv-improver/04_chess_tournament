@@ -69,7 +69,6 @@ class Controller:
         self.tournament.storeTournament()
         self.tournament.clearPlayersInfo()
         self.updateRanking(self.players_for_tournament)
-        self.tournament.storeTournament()
 
     def managePlayers(self):
         choices = {'1': self.createPlayer, '2': self.updateRanking}
