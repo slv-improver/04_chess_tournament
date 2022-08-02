@@ -45,7 +45,7 @@ class Controller:
                 3: self.generateReport
             }
             user_input = self.menuLister()
-            if user_input != None:
+            if user_input != None and user_input != 4:
                 choices[user_input]()
 
         quit()
