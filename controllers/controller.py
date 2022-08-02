@@ -17,8 +17,10 @@ class Controller:
         self.reportController = None
         self.handleGame()
 
-    def printError(self, message):
-        print(f'   —————\n  |  {message}\n   —————')
+    def displayError(self, message):
+        self.master_player.playerView.displayMessage(
+            f'   —————\n  |  {message}\n   —————'
+        )
 
     def welcome(self):
         welcome = Welcome()
@@ -99,9 +101,10 @@ class Controller:
             choice = int(self.master_player.View.askUser(
                 'Quel joueur mettre à jour : '
             ))
-            if (choice-1 < 0 or 
-            choice-1 >= len(players)):
-                print('Vérifiez le nombre')
+            if (choice-1 < 0 or choice-1 >= len(players)):
+                self.master_player.playerView.displayMessage(
+                    'Vérifiez le nombre'
+                )
                 continue
             players[choice-1].ranking = int(self.master_player.View.askUser(
                 f'Nouveau rang : ({players[choice-1].ranking}) '

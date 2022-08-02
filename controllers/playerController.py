@@ -42,14 +42,16 @@ class PlayerController:
         while (len(players_for_tournament) < number_of_players):
             for j, player in enumerate(all_players):
                 if (j not in hidden_players):
-                    print(f'{j+1} — {player.last_name} {player.first_name}')
+                    self.playerView.displayMessage(
+                        f'{j+1} — {player.last_name} {player.first_name}'
+                    )
             choice = int(self.playerView.askUser(
                 'Entrez le numéro du joueur à ajouter : '
             ))
             if (choice-1 in hidden_players or 
             choice-1 < 0 or 
             choice-1 >= len(all_players)):
-                print('Vérifiez le nombre')
+                self.playerView.displayMessage('Vérifiez le nombre')
                 continue
             players_for_tournament.append(all_players[choice-1])
             hidden_players.append(choice-1)

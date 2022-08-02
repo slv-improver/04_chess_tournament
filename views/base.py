@@ -8,3 +8,6 @@ class Base(ABC):
 
     def askUser(self, message):
         return input(message)
+
+    def displayMessage(self, message):
+        print(message)
