@@ -77,7 +77,7 @@ class Controller:
 
     def managePlayers(self):
         choices = {'1': self.createPlayer, '2': self.updateRanking}
-        user_choice = self.master_player.View.askUser(
+        user_choice = self.master_player.playerView.askUser(
             '1— Créer un joueur\n'
             '2— Mettre à jour le classement\n'
         )
@@ -87,7 +87,7 @@ class Controller:
         player = PlayerController().playerModel
         self.players.append(player)
         self.master_player.storePlayers(self.players)
-        if self.master_player.View.askUser(
+        if self.master_player.playerView.askUser(
             'Voulez-vous ajouter un autre joueur ? (Non)'
         ) != '':
             self.createPlayer()
@@ -98,7 +98,7 @@ class Controller:
             players = self.players 
         while (new_loop != '' and new_loop != 'n'):
             self.master_player.playerView.displayPlayers(players)
-            choice = int(self.master_player.View.askUser(
+            choice = int(self.master_player.playerView.askUser(
                 'Quel joueur mettre à jour : '
             ))
             if (choice-1 < 0 or choice-1 >= len(players)):
@@ -106,11 +106,11 @@ class Controller:
                     'Vérifiez le nombre'
                 )
                 continue
-            players[choice-1].ranking = int(self.master_player.View.askUser(
+            players[choice-1].ranking = int(self.master_player.playerView.askUser(
                 f'Nouveau rang : ({players[choice-1].ranking}) '
             ))
             self.master_player.storePlayers(self.players)
-            new_loop = self.master_player.View.askUser(
+            new_loop = self.master_player.playerView.askUser(
                 'Voulez-vous recommencer ? (Non) '
             )
 
