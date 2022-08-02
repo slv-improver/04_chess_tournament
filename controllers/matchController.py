@@ -14,7 +14,7 @@ class MatchController:
         )
 
     def askMatchResult(self):
-        result = int(input(
+        result = int(self.matchView.askUser(
             f'—————— Qui a gagné ?\n'
             f'1— {self.player1.last_name} {self.player1.first_name}\n'
             f'2— {self.player2.last_name} {self.player2.first_name}\n'
