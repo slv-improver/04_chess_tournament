@@ -34,9 +34,9 @@ class Controller:
             if user_input > 0 and user_input <= 4:
                 return user_input
             else:
-                self.printError('Le nombre n\'est pas compris dans la liste')
+                self.displayError('Le nombre n\'est pas compris dans la liste')
         except ValueError:
-            self.printError('Il faut entrer un nombre')
+            self.displayError('Il faut entrer un nombre')
 
     def handleGame(self):
         user_input = 0
