@@ -14,5 +14,4 @@ class TournamentDAO(DAO):
         self.tournaments_table.truncate()
 
     def insertData(self, serializedData):
-        self.clearTable()
         self.tournaments_table.insert(serializedData)
