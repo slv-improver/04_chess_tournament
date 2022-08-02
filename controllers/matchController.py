@@ -14,7 +14,7 @@ class MatchController:
         )
 
     def askMatchResult(self):
-        result = int(input(
+        result = int(self.matchView.askUser(
             f'—————— Qui a gagné ?\n'
             f'1— {self.player1.last_name} {self.player1.first_name}\n'
             f'2— {self.player2.last_name} {self.player2.first_name}\n'
@@ -27,8 +27,8 @@ class MatchController:
         }
         self.matchModel.updateScores(*scores[result])
 
-        self.player1.addPoints(score1)
-        self.player2.addPoints(score2)
+        self.player1.addPoints(scores[result][0])
+        self.player2.addPoints(scores[result][1])
 
         self.player1.previous_opponents.append(self.player2)
         self.player2.previous_opponents.append(self.player1)

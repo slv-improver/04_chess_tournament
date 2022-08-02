@@ -15,19 +15,23 @@ class TournamentController:
         self.askTournamentInfo()
 
     def askTournamentInfo(self):
-        name = input('Quel est le nom du tournoi ? ')
-        place = input('Le lieu ? ')
-        date = (input('La date de début ? (Aujourd\'hui) ') or 
-        datetime.today().strftime('%d/%m/%Y'))
-        end_date = (input('La date de fin ? (Aujourd\'hui) ') or 
-        datetime.today().strftime('%d/%m/%Y'))
-        number_of_rounds = int(input('Le nombre de tours ? (4) ') or '4')
+        name = self.tournamentView.askUser('Quel est le nom du tournoi ? ')
+        place = self.tournamentView.askUser('Le lieu ? ')
+        date = (self.tournamentView.askUser(
+            'La date de début ? (Aujourd\'hui) '
+        ) or datetime.today().strftime('%d/%m/%Y'))
+        end_date = (self.tournamentView.askUser(
+            'La date de fin ? (Aujourd\'hui) '
+        ) or datetime.today().strftime('%d/%m/%Y'))
+        number_of_rounds = int(self.tournamentView.askUser(
+            'Le nombre de tours ? (4) '
+        ) or '4')
         t_m_choices = {'1': 'Bullet', '2': 'Blitz', '3': 'Coup rapide'}
-        t_m_user_choice = int(input(
+        t_m_user_choice = self.tournamentView.askUser(
             'Le mode de jeu ?\n 1—Bullet - 2—Blitz - 3—Coup rapide : '
-        ) or t_m_choices['1'])
+        ) or '1'
         time_management = t_m_choices[t_m_user_choice]
-        description = input(
+        description = self.tournamentView.askUser(
             'Remarques relatives au tournoi : '
         ) or "Pas de remarques"
 
@@ -70,17 +74,14 @@ class TournamentController:
         )
         self.tournamentView.displayRanking(ranking[1:])
 
-    def clearprevious_opponents(self):
+    def clearPreviousOpponents(self):
         for player in self.tournamentModel.player_list:
             del player.previous_opponents[:]
+
+    def clearTournamentPoints(self):
+        for player in self.tournamentModel.player_list:
+            player.tournament_points = 0
 
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
         self.tournamentDao.insertData(dictTournament)
-
-    def updateRanking(self):
-        for player in self.tournamentModel.player_list:
-            player.ranking = int(input(
-                f'Nouveau classment de \n \
-                {player.last_name} {player.first_name}'
-            ))

@@ -15,7 +15,9 @@ class RoundController:
         self.matches_list = []
 
     def askRoundInfo(self):
-        name = input(f'Le nom du tour : (Round {self.round_number}) ')
+        name = self.roundView.askUser(
+            f'Le nom du tour : (Round {self.round_number}) '
+        )
         if name == '':
             name = f'Round {self.round_number}'
 
@@ -68,7 +70,7 @@ class RoundController:
         self.roundModel.matches_list.append(match.matchModel)
 
     def __typeEnterToContinue(self):
-        while input(
+        while self.roundView.askUser(
             'Appuyez sur ́“Entrer” lorsque les matchs sont terminés '
         ) != '':
             continue

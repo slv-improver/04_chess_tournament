@@ -17,8 +17,10 @@ class Controller:
         self.reportController = None
         self.handleGame()
 
-    def printError(self, message):
-        print(f'   —————\n  |  {message}\n   —————')
+    def displayError(self, message):
+        self.master_player.playerView.displayMessage(
+            f'   —————\n  |  {message}\n   —————'
+        )
 
     def welcome(self):
         welcome = Welcome()
@@ -28,13 +30,13 @@ class Controller:
         menu = Menu()
         menu.displayMenu()
         try:
-            user_input = int(input('Faites votre choix : '))
+            user_input = int(menu.askUser('Faites votre choix : '))
             if user_input > 0 and user_input <= 4:
                 return user_input
             else:
-                self.printError('Le nombre n\'est pas compris dans la liste')
+                self.displayError('Le nombre n\'est pas compris dans la liste')
         except ValueError:
-            self.printError('Il faut entrer un nombre')
+            self.displayError('Il faut entrer un nombre')
 
     def handleGame(self):
         user_input = 0
@@ -45,7 +47,7 @@ class Controller:
                 3: self.generateReport
             }
             user_input = self.menuLister()
-            if user_input != None:
+            if user_input != None and user_input != 4:
                 choices[user_input]()
 
         quit()
@@ -54,7 +56,9 @@ class Controller:
         self.tournament = TournamentController()
         self.players_for_tournament = self.master_player.choosePlayers(
             self.players,
-            int(input('Combien de joueurs participent ? '))
+            int(self.tournament.tournamentView.askUser(
+                'Combien de joueurs participent ? '
+            ))
         )
         self.tournament.tournamentModel.player_list = (
             self.players_for_tournament
@@ -66,13 +70,14 @@ class Controller:
             key=lambda x: (-x.tournament_points, x.ranking)
         )
         self.tournament.declareWinner()
-        self.tournament.clearprevious_opponents()
-        self.tournament.updateRanking(self.players_for_tournament)
+        self.tournament.clearPreviousOpponents()
         self.tournament.storeTournament()
+        self.tournament.clearTournamentPoints()
+        self.updateRanking(self.players_for_tournament)
 
     def managePlayers(self):
         choices = {'1': self.createPlayer, '2': self.updateRanking}
-        user_choice = input(
+        user_choice = self.master_player.playerView.askUser(
             '1— Créer un joueur\n'
             '2— Mettre à jour le classement\n'
         )
@@ -82,29 +87,32 @@ class Controller:
         player = PlayerController().playerModel
         self.players.append(player)
         self.master_player.storePlayers(self.players)
-        if input('Voulez-vous ajouter un autre joueur ? (Non)') != '':
+        if self.master_player.playerView.askUser(
+            'Voulez-vous ajouter un autre joueur ? (Non)'
+        ) != '':
             self.createPlayer()
 
     def updateRanking(self, players=None):
+        new_loop = 'yes'
         if not players:
             players = self.players 
-        while (len(players) > 0):
+        while (new_loop != '' and new_loop != 'n'):
             self.master_player.playerView.displayPlayers(players)
-            choice = int(input('Quel joueur mettre à jour : '))
-            if (choice-1 < 0 or 
-            choice-1 >= len(players)):
-                print('Vérifiez le nombre')
-                continue
-            players[choice-1].ranking = int(input(
-                'Nouveau rang : '
+            choice = int(self.master_player.playerView.askUser(
+                'Quel joueur mettre à jour : '
             ))
-            self.master_player.storePlayers(players)
-            if (players == self.players):
-                if (input('Voulez-vous recommencer ? (Non) ') != ''):
-                    continue
-                else: break
-            else:
-                del players[choice-1]
+            if (choice-1 < 0 or choice-1 >= len(players)):
+                self.master_player.playerView.displayMessage(
+                    'Vérifiez le nombre'
+                )
+                continue
+            players[choice-1].ranking = int(self.master_player.playerView.askUser(
+                f'Nouveau rang : ({players[choice-1].ranking}) '
+            ))
+            self.master_player.storePlayers(self.players)
+            new_loop = self.master_player.playerView.askUser(
+                'Voulez-vous recommencer ? (Non) '
+            )
 
     def generateReport(self):
         self.reportController = ReportController()

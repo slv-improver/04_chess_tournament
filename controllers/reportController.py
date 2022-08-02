@@ -16,7 +16,7 @@ class ReportController:
                 '1': self.reportPlayers,
                 '2': self.reportTournaments
             }
-        user_choice = input(
+        user_choice = self.reportView.askUser(
             '1— Tous les joueurs\n'
             '2— Tous les tournois\n'
         )
@@ -36,13 +36,15 @@ class ReportController:
     def chooseTournament(self):
         dictTournaments = self.tournamentDao.getAll()
         self.reportView.displayTournaments(dictTournaments)
-        user_tournament = int(input('Choisissez un tournoi : ')) - 1
+        user_tournament = int(self.reportView.askUser(
+            'Choisissez un tournoi : '
+        )) - 1
         choices = {
                 '1': self.reportTournamentPlayers,
                 '2': self.reportTournamentRounds,
                 '3': self.reportTournamentMatches
             }
-        user_choice = input(
+        user_choice = self.reportView.askUser(
             '——— Souhaitez-vous afficher :\n'
             '1— Les joueurs\n'
             '2— Les tours\n'
@@ -74,7 +76,7 @@ class ReportController:
         self.reportView.reportTournamentMatches(tournament['name'], rounds)
 
     def chooseSortingMethod(self):
-        by_rank = input(
+        by_rank = self.reportView.askUser(
             'Lister les joueurs par classement ? '
             '(Par défaut : ordre alphabétique) : '
         )
