@@ -42,7 +42,7 @@ class Controller:
         user_input = 0
         while user_input != 4:
             choices = {
-                1: self.startTournament,
+                1: self.manageTournaments,
                 2: self.managePlayers,
                 3: self.generateReport
             }
@@ -52,8 +52,17 @@ class Controller:
 
         quit()
 
-    def startTournament(self):
+    def manageTournaments(self):
         self.tournament = TournamentController()
+        choices = {'1': self.startTournament, '2': self.loadTournament}
+        user_choice = self.tournament.tournamentView.askUser(
+            '1— Créer un tournoi\n'
+            '2— Charger un tournoi\n'
+        )
+        choices[user_choice]()
+
+    def startTournament(self):
+        self.tournament.launchTournament()
         self.players_for_tournament = self.master_player.choosePlayers(
             self.players,
             int(self.tournament.tournamentView.askUser(
