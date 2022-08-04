@@ -6,7 +6,7 @@ class Menu(Base):
 
     def __init__(self):
         self.choices = (
-            '\n1— Créer un tournoi\n'
+            '\n1— Gérer les tournois\n'
             '2— Gérer les joueurs\n'
             '3— Générer un rapport\n'
             '4— Quitter\n'
