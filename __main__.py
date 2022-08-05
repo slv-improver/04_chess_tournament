@@ -9,9 +9,6 @@ game_controller = Controller()
 def saveGame():
     game_controller.saveGame()
 
-def loadGame():
-    game_controller.loadGame()
-
 def main():
     game_controller.launchGame()
 
