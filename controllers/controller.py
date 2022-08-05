@@ -17,6 +17,9 @@ class Controller:
         self.reportController = None
         self.handleGame()
 
+    def saveGame(self):
+        pass
+
     def displayError(self, message):
         self.master_player.playerView.displayMessage(
             f'   —————\n  |  {message}\n   —————'
