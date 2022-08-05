@@ -18,7 +18,10 @@ class Controller:
         self.handleGame()
 
     def saveGame(self):
-        pass
+        if self.tournament and self.tournament.tournamentModel:
+            print('ok')
+        else:
+            print('no ok')
 
     def displayError(self, message):
         self.master_player.playerView.displayMessage(
