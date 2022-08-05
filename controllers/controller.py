@@ -84,6 +84,9 @@ class Controller:
         self.tournament.clearTournamentPoints()
         self.updateRanking(self.players_for_tournament)
 
+    def loadTournament(self):
+        interrupted_tournament = self.tournament.getInterruptedTournament()
+
     def managePlayers(self):
         choices = {'1': self.createPlayer, '2': self.updateRanking}
         user_choice = self.master_player.playerView.askUser(
