@@ -87,3 +87,6 @@ class TournamentController:
     def storeTournament(self):
         dictTournament = self.tournamentModel.toDict()
         self.tournamentDao.insertData(dictTournament)
+
+    def getInterruptedTournament(self):
+        return self.tournamentDao.searchForInterrupted()
