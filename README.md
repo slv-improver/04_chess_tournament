@@ -6,6 +6,8 @@ After activate environement, run:</br>
 `python __main__.py`</br>
 And follow the instructions in the menu.
 
+You can save a running tournament by pressing CTRL + S.
+
 The default value when prompted is between brackets `()`.</br>
 The interactions are in French for the needs of the client.
 
