@@ -15,7 +15,6 @@ def main():
 
 if __name__ == '__main__':
     with keyboard.GlobalHotKeys({
-        '<ctrl>+s': saveGame,
-        '<ctrl>+w': loadGame
+        '<ctrl>+s': saveGame
     }):
         main()
