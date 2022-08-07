@@ -32,4 +32,4 @@ class Player(Base):
 
     @classmethod
     def toObject(cls, serializedPlayer):
-        return cls(**serializedPlayer)
+        return cls(**serializedPlayer, player_id=serializedPlayer.doc_id)
