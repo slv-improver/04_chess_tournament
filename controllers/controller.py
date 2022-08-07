@@ -21,7 +21,9 @@ class Controller:
         if self.tournament and self.tournament.tournamentModel:
             print('ok')
         else:
-            print('no ok')
+            Menu.displayMessage(
+                'Aucun tournoi ne peut être enregistré pour le moment.'
+            )
 
     def displayError(self, message):
         self.master_player.playerView.displayMessage(
