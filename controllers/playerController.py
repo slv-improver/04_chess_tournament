@@ -66,10 +66,10 @@ class PlayerController:
         self.playerDao.insertData(dictPlayers)
 
     def getPlayers(self):
-        dictPlayers = self.playerDao.getAll()
+        tinyPlayers = self.playerDao.getAll()
         players = []
-        for dictPlayer in dictPlayers:
+        for tinyPlayer in tinyPlayers:
             players.append(
-                self.playerModel.toObject(dictPlayer)
+                self.playerModel.toObject(tinyPlayer)
             )
         return players
