@@ -1,5 +1,14 @@
 # Chess Tournament Program<br> in Python
 
+## How to run the program
+
+After activate environement, run:</br>
+`python __main__.py`</br>
+And follow the instructions in the menu.
+
+The default value when prompted is between brackets `()`.</br>
+The interactions are in French for the needs of the client.
+
 ## How to generate a Flake8 report
 
 Inside the project directory:
