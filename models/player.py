@@ -25,6 +25,8 @@ class Player(Base):
         self.tournament_points = tournament_points
         self.previous_opponents = previous_opponents
 
+        self.player_id = 0
+
     def addPoints(self, score):
         self.tournament_points += score
 
