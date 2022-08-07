@@ -26,3 +26,17 @@ class Tournament(Base):
         self.player_list = player_list
         self.time_management = time_management
         self.description = description
+
+    def toInterrupted(self):
+        dictInterrupted = {
+            'name': self.name,
+            'place': self.place,
+            'date': self.date,
+            'end_date': self.date,
+            'number_of_rounds': self.number_of_rounds,
+            'round_list': [],
+            'player_list': [],
+            'time_management': self.time_management,
+            'description': self.description
+        }
+        

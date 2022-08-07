@@ -94,5 +94,5 @@ class TournamentController:
     def saveInterruptedTournament(self):
         self.tournamentModel.interrupted = True
         self.tournamentDao.saveInterruptedTournament(
-            self.tournamentModel
+            self.tournamentModel.toInterrupted()
         )
