@@ -19,7 +19,8 @@ class Controller:
 
     def saveGame(self):
         if self.tournament and self.tournament.tournamentModel:
-            print('ok')
+            self.tournament.saveInterruptedTournament()
+            print('Well done! Check db.json if all\'s good.')
         else:
             Menu.displayMessage(
                 'Aucun tournoi ne peut être enregistré pour le moment.'
