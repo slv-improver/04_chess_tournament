@@ -9,5 +9,6 @@ class Base(ABC):
     def askUser(self, message):
         return input(message)
 
+    @classmethod
     def displayMessage(self, message):
         print(message)
