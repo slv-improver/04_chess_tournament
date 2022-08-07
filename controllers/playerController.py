@@ -31,8 +31,8 @@ class PlayerController:
             last_name,
             first_name,
             birth_date,
-            gender = gender,
-            ranking = ranking
+            gender=gender,
+            ranking=ranking
         )
         # Remember to handle errors
 
@@ -48,9 +48,11 @@ class PlayerController:
             choice = int(self.playerView.askUser(
                 'Entrez le numéro du joueur à ajouter : '
             ))
-            if (choice-1 in hidden_players or 
-            choice-1 < 0 or 
-            choice-1 >= len(all_players)):
+            if (
+                choice-1 in hidden_players or
+                choice-1 < 0 or
+                choice-1 >= len(all_players)
+            ):
                 self.playerView.displayMessage('Vérifiez le nombre')
                 continue
             players_for_tournament.append(all_players[choice-1])

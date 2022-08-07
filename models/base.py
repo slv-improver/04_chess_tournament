@@ -12,7 +12,7 @@ class Base(ABC):
                 json.dumps(value)
                 dictData[key] = value
             except TypeError:
-                if hasattr(value, '__iter__'): 
+                if hasattr(value, '__iter__'):
                     new_value = self.iterate(value)
                     dictData[key] = new_value
                 else:
