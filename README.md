@@ -16,5 +16,6 @@ Inside the project directory:
 ## Dependencies
 
 - flake8==4.0.1
+- flake8-html==0.4.2
 - black==22.3.0
 - tinydb==4.7.0
