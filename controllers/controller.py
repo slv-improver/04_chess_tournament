@@ -47,7 +47,7 @@ class Controller:
                 3: self.generateReport
             }
             user_input = self.menuLister()
-            if user_input != None and user_input != 4:
+            if user_input is not None and user_input != 4:
                 choices[user_input]()
 
         quit()
@@ -95,7 +95,7 @@ class Controller:
     def updateRanking(self, players=None):
         new_loop = 'yes'
         if not players:
-            players = self.players 
+            players = self.players
         while (new_loop != '' and new_loop != 'n'):
             self.master_player.playerView.displayPlayers(players)
             choice = int(self.master_player.playerView.askUser(
