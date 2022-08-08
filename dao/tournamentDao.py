@@ -21,5 +21,6 @@ class TournamentDAO(DAO):
         )
         del interrupted_tournament['interrupted']
         return interrupted_tournament
-    def saveInterruptedTournament(self, interruptedTournament):
-        print(interruptedTournament)
+
+    def saveInterruptedTournament(self, interrupted_tournament):
+        print(interrupted_tournament)
