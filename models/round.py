@@ -19,18 +19,7 @@ class Round(Base):
         }
         if self.matches_list:
             for match in self.matches_list:
-                dictMatch = {
-                    'scores': (
-                        [
-                            match.scores[0][0].player_id,
-                            match.scores[0][1],
-                        ],
-                        [
-                            match.scores[1][0].player_id,
-                            match.scores[1][1],
-                        ]
-                    )
-                }
+                dictMatch = match.toInterrupted()
                 dictRound['matches_list'].append(dictMatch)
 
         return dictRound

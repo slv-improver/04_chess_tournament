@@ -21,3 +21,19 @@ class Match(Base):
             )
         }
         return dictData
+
+    def toInterrupted(self):
+        dictMatch = {
+            'scores': (
+                [
+                    self.scores[0][0].player_id,
+                    self.scores[0][1],
+                ],
+                [
+                    self.scores[1][0].player_id,
+                    self.scores[1][1],
+                ]
+            )
+        }
+
+        return dictMatch
