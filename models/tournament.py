@@ -54,4 +54,19 @@ class Tournament(Base):
                     'start_time': round.start_time,
                     'end_time': round.end_time
                 }
+                if round.matches_list:
+                    for match in round.matches_list:
+                        dictMatch = {
+                            'scores': (
+                                [
+                                    match.scores[0][0].player_id,
+                                    match.scores[0][1],
+                                ],
+                                [
+                                    match.scores[1][0].player_id,
+                                    match.scores[1][1],
+                                ]
+                            )
+                        }
+                        dictRound['matches_list'].append(dictMatch)
                 dictInterrupted['round_list'].append(dictRound)
