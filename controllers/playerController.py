@@ -62,6 +62,7 @@ class PlayerController:
     def storePlayers(self, players):
         dictPlayers = []
         for player in players:
+            del player.player_id
             dictPlayers.append(player.toDict())
         self.playerDao.insertData(dictPlayers)
 
