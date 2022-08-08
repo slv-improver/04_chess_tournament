@@ -17,7 +17,7 @@ class TournamentDAO(DAO):
 
     def searchForInterrupted(self):
         print(self.tournaments_table.search(
-            self.Tournament.interrupted == True
+            self.Tournament.interrupted == "True"
         ))
     def saveInterruptedTournament(self, interruptedTournament):
         print(interruptedTournament)
