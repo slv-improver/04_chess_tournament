@@ -46,3 +46,12 @@ class Tournament(Base):
                 dictInterrupted['player_list'].append(
                     player.player_id
                 )
+        if self.round_list:
+            for round in self.round_list:
+                dictRound = {
+                    'name': round.name,
+                    'matches_list': [],
+                    'start_time': round.start_time,
+                    'end_time': round.end_time
+                }
+                dictInterrupted['round_list'].append(dictRound)
