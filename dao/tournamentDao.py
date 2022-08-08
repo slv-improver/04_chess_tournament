@@ -23,4 +23,4 @@ class TournamentDAO(DAO):
         return interrupted_tournament
 
     def saveInterruptedTournament(self, interrupted_tournament):
-        print(interrupted_tournament)
+        self.tournaments_table.insert(interrupted_tournament)
