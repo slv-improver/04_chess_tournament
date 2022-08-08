@@ -50,3 +50,5 @@ class Tournament(Base):
             for round in self.round_list:
                 dictRound = round.toInterrupted()
                 dictInterrupted['round_list'].append(dictRound)
+
+        return dictInterrupted
