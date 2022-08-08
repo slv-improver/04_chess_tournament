@@ -44,7 +44,7 @@ class Tournament(Base):
         if self.player_list:
             for player in self.player_list:
                 dictInterrupted['player_list'].append(
-                    player.player_id
+                    player.toInterrupted()
                 )
         if self.round_list:
             for round in self.round_list:

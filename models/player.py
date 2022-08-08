@@ -30,6 +30,9 @@ class Player(Base):
     def addPoints(self, score):
         self.tournament_points += score
 
+    def toInterrupted(self):
+        return self.player_id
+
     @classmethod
     def toObject(cls, serializedPlayer):
         return cls(**serializedPlayer, player_id=serializedPlayer.doc_id)
