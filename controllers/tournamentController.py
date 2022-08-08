@@ -61,8 +61,8 @@ class TournamentController:
             round.generatePairsOtherRounds(
                 self.tournamentModel.player_list
             )
-        round.askMatchResult()
         round.completeRound()
+        round.askMatchResult()
 
     def declareWinner(self):
         ranking = sorted(
