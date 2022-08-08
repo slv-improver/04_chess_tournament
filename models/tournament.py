@@ -41,4 +41,8 @@ class Tournament(Base):
             'time_management': self.time_management,
             'description': self.description
         }
-        
+        if self.player_list:
+            for player in self.player_list:
+                dictInterrupted['player_list'].append(
+                    player.player_id
+                )
