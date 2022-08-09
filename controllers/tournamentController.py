@@ -92,6 +92,9 @@ class TournamentController:
         interrupted_tournament = self.tournamentDao.searchForInterrupted()
         if interrupted_tournament:
             del interrupted_tournament[0]['status']
+            self.tournamentDao.removeInterruptedTournament(
+                interrupted_tournament[0].doc_id
+            )
             return interrupted_tournament
         else:
             self.tournamentView.displayMessage('Aucun tournoi à charger')

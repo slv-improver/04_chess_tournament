@@ -20,8 +20,14 @@ class TournamentDAO(DAO):
             self.Tournament.status == "interrupted"
         )
 
-    def saveInterruptedTournament(self, interrupted_tournament):
+    def removeInterruptedTournament(self, tournament_id):
         self.tournaments_table.remove(
-            doc_ids=[self.searchForInterrupted()[0].doc_id]
-        )
+            # give it list of one id
+            doc_ids=[tournament_id]
+            )
+
+    def saveInterruptedTournament(self, interrupted_tournament):
+        self.removeInterruptedTournament(
+            self.searchForInterrupted()[0].doc_id
+            )
         self.tournaments_table.insert(interrupted_tournament)
