@@ -89,13 +89,13 @@ class TournamentController:
         self.tournamentDao.insertData(dictTournament)
 
     def getInterruptedTournament(self):
-        interrupted_tournament = self.tournamentDao.searchForInterrupted()
-        if interrupted_tournament:
-            del interrupted_tournament[0]['status']
+        interrupted_tournaments = self.tournamentDao.searchForInterrupted()
+        if interrupted_tournaments:
+            del interrupted_tournaments[0]['status']
             self.tournamentDao.removeInterruptedTournament(
-                interrupted_tournament[0].doc_id
+                interrupted_tournaments[0].doc_id
             )
-            return interrupted_tournament
+            return interrupted_tournament[0]
         else:
             self.tournamentView.displayMessage('Aucun tournoi à charger')
 
