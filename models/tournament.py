@@ -29,7 +29,7 @@ class Tournament(Base):
 
     def toInterrupted(self):
         dictInterrupted = {
-            'interrupted': True,
+            'status': 'interrupted',
 
             'name': self.name,
             'place': self.place,
