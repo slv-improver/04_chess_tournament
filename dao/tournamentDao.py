@@ -16,11 +16,9 @@ class TournamentDAO(DAO):
         self.tournaments_table.insert(serializedData)
 
     def searchForInterrupted(self):
-        interrupted_tournament = self.tournaments_table.search(
-            self.Tournament.interrupted == "True"
+        return self.tournaments_table.search(
+            self.Tournament.status == "interrupted"
         )
-        del interrupted_tournament['interrupted']
-        return interrupted_tournament
 
     def saveInterruptedTournament(self, interrupted_tournament):
         self.tournaments_table.insert(interrupted_tournament)
