@@ -100,6 +100,11 @@ class TournamentController:
             self.tournamentView.displayMessage('Aucun tournoi à charger')
 
     def saveInterruptedTournament(self):
+        interrupted_tournaments = self.tournamentDao.searchForInterrupted()
+        if interrupted_tournaments:
+            self.tournamentDao.removeInterruptedTournament(
+                interrupted_tournaments[0].doc_id
+            )
         self.tournamentDao.saveInterruptedTournament(
             self.tournamentModel.toInterrupted()
         )
