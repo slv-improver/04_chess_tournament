@@ -21,4 +21,7 @@ class TournamentDAO(DAO):
         )
 
     def saveInterruptedTournament(self, interrupted_tournament):
+        self.tournaments_table.remove(
+            doc_ids=[self.searchForInterrupted()[0].doc_id]
+        )
         self.tournaments_table.insert(interrupted_tournament)
